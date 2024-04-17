@@ -8,5 +8,5 @@ let thirdDe = document.getElementById("de-3")
 let fourthDe = document.getElementById("de-4")
 let fifthDe = document.getElementById("de-5")
 
-console.log(fifthDe.innerHTML);
+let domRelatedDes = []
 
