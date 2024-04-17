@@ -2,7 +2,14 @@ let throwDes = () => {
     for(i = 1; i < 6; i++){
         listDes.push(Math.floor(Math.random() * 6) + 1)
     }
-    console.log(listDes);
+    listDes.forEach((de,j) => {
+        console.log(document.getElementById(`de-${++j}`));
+        document.getElementById(`de-${j}`).innerText = de
+    });
+}
+
+let selectedDe = () => {
+    
 }
 
 let full = () => {
