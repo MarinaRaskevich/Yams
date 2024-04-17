@@ -5,7 +5,7 @@ let firstThrow = () => {
   console.log(listDes);
 };
 
-//Ajouter des chifres identiques dans une sélection aléatoire de dés
+//Ajouter des chifres identiques dans une sélection aléatoire de dés (pour Total 1, 2 etc.)
 const sumDuplicates = (value, array) => {
   let count = 0;
   for (let i = 0; i < array.length; i++) {
@@ -16,7 +16,7 @@ const sumDuplicates = (value, array) => {
   return count * value;
 };
 
-// Vérification des valeurs pour yams
+// Vérification et calcul de la valeur pour "Yams"
 const yamsScore = (array) => {
   if (array.every((number, i, arr) => number == arr[0])) {
     return 50;
@@ -25,7 +25,7 @@ const yamsScore = (array) => {
   }
 };
 
-// Calcul de la valeur pour Chance
+// Vérification et calcul de la valeur pour "Chance"
 const chanceScore = (array) => {
   let sum = 0;
   for (let i = 0; i < array.length; i++) {
@@ -34,8 +34,62 @@ const chanceScore = (array) => {
   return sum;
 };
 
-firstThrow();
-console.log(chanceScore(listDes));
+//Vérifiez si la valeur peut être dans une sélection aléatoire de dés
+const isInArray = (value, array) => {
+  return array.indexOf(value) > -1;
+};
+
+//Vérification et calcul de la valeur pour "Grande Suite"
+const bigSuiteScore = (array) => {
+  if (
+    isInArray(2, array) &&
+    isInArray(3, array) &&
+    isInArray(4, array) &&
+    isInArray(5, array) &&
+    isInArray(6, array)
+  ) {
+    return 40;
+  } else {
+    return 0;
+  }
+};
+
+//Vérification et calcul de la valeur pour "Petite Suite"
+const smallSuiteScore = (array) => {
+  if (
+    isInArray(1, array) &&
+    isInArray(2, array) &&
+    isInArray(3, array) &&
+    isInArray(4, array) &&
+    isInArray(5, array)
+  ) {
+    return 30;
+  } else {
+    return 0;
+  }
+};
+
+let duplicates;
+
+// à tester encore
+const brelanScore = (array) => {
+  let duplicates = {};
+  let count = 0;
+  for (let n = 0; n < array.length; n++) {
+    array.forEach((number) => {
+      if (array[n] == number) {
+        count++;
+      }
+    });
+    console.log(array[n]);
+    duplicates[array[n]] = count;
+    count = 0;
+  }
+  return duplicates;
+};
+
+// firstThrow();
+// console.log(brelanScore([6, 2, 2, 2, 3]));
 
 const calculatePoints = (operation, distValues) => {
   let total;
@@ -65,8 +119,10 @@ const calculatePoints = (operation, distValues) => {
     case "full":
       break;
     case "smallSuite":
+      total = smallSuiteScore(distValues);
       break;
     case "bigSuite":
+      total = bigSuiteScore(distValues);
       break;
     case "yams":
       total = yamsScore(distValues);
