@@ -1,1 +1,3 @@
-//Sélecteurs et écouteurs d'événements
+let listDes = [];
+
+let throwDice = [];
