@@ -1,69 +1,57 @@
 let firstThrow = () => {
     for(i = 1; i < 6; i++){
-        listDes.push(Math.floor(Math.random() * 6) + 1)
+        listDices.push(Math.floor(Math.random() * 6) + 1)
     }
-    showValues();
+    diceChoice();
 }
 
 let secondThrow = () => {
-    listDes = [];
-    let numberOfnone = 5 - containerThrow.querySelectorAll(".d-none").length;
-    console.log(numberOfnone);
+    let numberOfnone = 5 - document.querySelectorAll(".d-none").length;
     for (let i = 0; i < numberOfnone; ++i) {
-        listDes.push(Math.floor(Math.random() * 6) + 1);
+        listDices.push(Math.floor(Math.random() * 6) + 1);
     }
-    containerThrow.innerHTML = "";
-    showValues();
-    console.log(domRelatedDes);
 }
 
-let showValues = () => {
+let thirdThrow = () => {
+    let numberOfnone = 5 - document.querySelectorAll(".container-selected p").length;
+    for (let i = 0; i < numberOfnone; ++i) {
+        listDices.push(Math.floor(Math.random() * 6) + 1);
+    }
+}
 
-    listDes.forEach((de,j) => {
+let diceChoice = () => {
+
+    //PARSE LE TABLEAU DE DES
+    listDices.forEach((dice,j) => {
         let p = document.createElement("p");
-        p.setAttribute("data-value", de)
-        p.innerText = de;
+        p.setAttribute("data-dice-value", dice);
+        p.innerText = dice;
         //AJOUT DU Dé DANS LE DOM
         containerThrow.appendChild(p);
 
         p.addEventListener("click", (e) => {
-            console.log(e.target.getAttribute("data-value"));
+            console.log(e.target.getAttribute("data-dice-value"));
             e.target.classList.add("d-none");
-            domRelatedDes.push(e.target.innerText);
+
+            domRelatedDices.push(e.target.innerText);
+
+            //TABLEAU QUI PERMET DE GARDER LE FIL AU VU DE LA MANIPULATION DES VALEURS
+            //DU DOM QUI S'EFFACE
+            keptDices.push(e.target.innerText)
+
+            console.log(keptDices);
+
+            console.log(domRelatedDices);
+            domRelatedDices.forEach((dice) => {
+                let p = document.createElement("p");
+                p.setAttribute("data-value", dice);
+                p.innerText = dice;
+                containerSelected.appendChild(p);
+                domRelatedDices = [];
+            })
         })
 
     });
-}
-
-let selectedDe = () => {
-
-}
-
-let full = () => {
-
-}
-
-let littleSuite = () => {
-
-}
-
-let suite = () => {
-
-}
-
-let chance = () => {
-
-}
-
-let square = () => {
-    
-}
-
-let brelan = () => {
-
-}
-
-let yams = () => {
 
 }
 
