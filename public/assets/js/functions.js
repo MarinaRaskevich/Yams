@@ -13,42 +13,44 @@ let secondThrow = () => {
 }
 
 let thirdThrow = () => {
-    let numberOfnone = 5 - document.querySelectorAll(".container-selected p").length;
+    let numberOfnone = 5 - document.querySelectorAll(".container-selected img").length;
     for (let i = 0; i < numberOfnone; ++i) {
         listDices.push(Math.floor(Math.random() * 6) + 1);
     }
 }
 
+let counterDivSelected = 0;
+
 let diceChoice = () => {
 
     //PARSE LE TABLEAU DE DES
     listDices.forEach((dice,j) => {
-        let p = document.createElement("p");
-        p.setAttribute("data-dice-value", dice);
-        p.innerText = dice;
+        let img = document.createElement("img");
+        img.classList.add("dice");
+        img.setAttribute("data-dice-value", dice);
+        img.setAttribute("src", `public/assets/img/${dice}.png`)
         //AJOUT DU Dé DANS LE DOM
-        containerThrow.appendChild(p);
+        containerThrow.appendChild(img);
 
-        p.addEventListener("click", (e) => {
+        img.addEventListener("click", (e) => {
             console.log(e.target.getAttribute("data-dice-value"));
             e.target.classList.add("d-none");
 
-            domRelatedDices.push(e.target.innerText);
+            domRelatedDices.push(e.target.dataset.diceValue);
 
             //TABLEAU QUI PERMET DE GARDER LE FIL AU VU DE LA MANIPULATION DES VALEURS
             //DU DOM QUI S'EFFACE
-            keptDices.push(e.target.innerText)
+            keptDices.push(e.target.dataset.diceValue);
 
-            console.log(keptDices);
-
-            console.log(domRelatedDices);
             domRelatedDices.forEach((dice) => {
-                let p = document.createElement("p");
-                p.setAttribute("data-value", dice);
-                p.innerText = dice;
-                containerSelected.appendChild(p);
+                let img = document.createElement("img");
+                img.classList.add("dice");
+                img.setAttribute("data-value", dice);
+                img.setAttribute("src", `public/assets/img/${dice}.png`);
+                containerSelectDice[counterDivSelected].appendChild(img);
                 domRelatedDices = [];
             })
+            counterDivSelected++
         })
 
     });
