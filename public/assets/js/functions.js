@@ -69,11 +69,9 @@ const smallSuiteScore = (array) => {
   }
 };
 
-let duplicates;
-
-// à tester encore
-const brelanScore = (array) => {
-  let duplicates = {};
+// Affiche un tableau d'objets avec la fréquence des mêmes valeurs parmi les dés
+const verifyFrequency = (array) => {
+  let valuesFrequency = [];
   let count = 0;
   for (let n = 0; n < array.length; n++) {
     array.forEach((number) => {
@@ -81,15 +79,57 @@ const brelanScore = (array) => {
         count++;
       }
     });
-    console.log(array[n]);
-    duplicates[array[n]] = count;
+    let valueAndHisFrequency = {
+      value: array[n],
+      count: count,
+    };
+    valuesFrequency.push(valueAndHisFrequency);
     count = 0;
   }
-  return duplicates;
+  return valuesFrequency;
 };
 
-// firstThrow();
-// console.log(brelanScore([6, 2, 2, 2, 3]));
+//Vérification et calcul de la valeur pour "Brelan"
+const brelanScore = (array) => {
+  const valuesFrequency = verifyFrequency(array);
+  if (valuesFrequency.find((el) => el.count >= 3)) {
+    let valueFrequency = valuesFrequency.find(
+      (el) => el.count >= 3 && el.count <= 5
+    );
+    return valueFrequency.value * 3;
+  } else {
+    return 0;
+  }
+};
+
+//Vérification et calcul de la valeur pour "Carré"
+const squareScore = (array) => {
+  const valuesFrequency = verifyFrequency(array);
+  if (valuesFrequency.find((el) => el.count >= 4)) {
+    let valueFrequency = valuesFrequency.find(
+      (el) => el.count >= 4 && el.count <= 5
+    );
+    return valueFrequency.value * 4;
+  } else {
+    return 0;
+  }
+};
+
+//Vérification et calcul de la valeur pour "Full"
+const fullScore = (array) => {
+  const valuesFrequency = verifyFrequency(array);
+  const brelan = valuesFrequency.find((el) => el.count == 3) ? true : false;
+  const pair = valuesFrequency.find((el) => el.count == 2) ? true : false;
+
+  if (brelan && pair) {
+    return 25;
+  } else {
+    return 0;
+  }
+};
+
+firstThrow();
+console.log(fullScore([3, 3, 3, 4, 2]));
 
 const calculatePoints = (operation, distValues) => {
   let total;
@@ -113,10 +153,13 @@ const calculatePoints = (operation, distValues) => {
       total = sumDuplicates(6, distValues);
       break;
     case "brelan":
+      total = brelanScore(distValues);
       break;
     case "square":
+      total = squareScore(distValues);
       break;
     case "full":
+      total = fullScore(distValues);
       break;
     case "smallSuite":
       total = smallSuiteScore(distValues);
