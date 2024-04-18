@@ -271,7 +271,7 @@ let counterDivSelected = 0;
 
 let diceChoice = () => {
   //PARSE LE TABLEAU DE DES
-  listDices.forEach((dice, j) => {
+  listDices.forEach((dice) => {
     let img = document.createElement("img");
     img.classList.add("dice");
     img.setAttribute("data-dice-value", dice);
@@ -304,8 +304,24 @@ let diceChoice = () => {
 
 const throwDices = () => {
   addListenerToCells();
-  listDes = [];
   updatePointsInGame(firstThrow());
+  listDices = [];
+
+  if (numberThrow == 0) {
+    firstThrow();
+  } else if (numberThrow == 1) {
+    secondThrow();
+    // alert("Stop the GAME")
+  } else if (numberThrow == 2) {
+    thirdThrow();
+    containerThrow.querySelectorAll("img").forEach((element) => {
+      keptDices.push(element.dataset.diceValue);
+    });
+    document.querySelector(".container-throw").classList.add("d-none");
+  }
+  containerThrow.innerHTML = "";
+  diceChoice();
+  numberThrow++;
 };
 
-firstThrow();
+// firstThrow();
