@@ -15,7 +15,9 @@ console.log(containerSelectDice);
 
 let numberThrow = 0;
 
-document.getElementById("throw").addEventListener("click", (e) => {
+let throwButton = document.getElementById("throw");
+
+throwButton.addEventListener("click", (e) => {
   listDices = [];
   if (numberThrow > 0) {
     thirdThrow();
@@ -89,7 +91,3 @@ let pointsInGame = {
   yams: 0,
   chance: 0,
 };
-
-//changer
-let throwButton = document.querySelector("#throw");
-throwButton.addEventListener("click", throwAct);

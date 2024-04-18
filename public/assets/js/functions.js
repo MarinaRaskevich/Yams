@@ -232,13 +232,6 @@ const addValueInCell = () => {
   }
 };
 
-//Changer
-const throwAct = () => {
-  addListenerToCells();
-  listDes = [];
-  updatePointsInGame(firstThrow());
-};
-
 // Mettre à jour les données d'objet de points dynamiques
 const updatePointsInGame = (array) => {
   console.log(array);
@@ -307,6 +300,12 @@ let diceChoice = () => {
       counterDivSelected++;
     });
   });
+};
+
+const throwDices = () => {
+  addListenerToCells();
+  listDes = [];
+  updatePointsInGame(firstThrow());
 };
 
 firstThrow();
