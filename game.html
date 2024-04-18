@@ -11,7 +11,110 @@
     <title>Yams</title>
   </head>
   <body>
-    <script src="./public/assets/js/functions.js"></script>
+    <header class="text-center">
+      <img src="public/assets/img/yamsTitle.png" alt="">
+    </header>
+    <div class="container pt-5 vh-90">
+      <div class="row h-100 align-content-center">
+        <div class="col-12 col-lg-8 d-flex flex-column justify-content-center">
+          <div>
+            <div class="gameDesk d-flex flex-wrap justify-content-center align-items-center mb-3 border border-6">
+              <div class="container-throw d-flex"></div>
+              <div class="container-selected d-flex">
+                <div class="dice-container m-2"></div>
+                <div class="dice-container m-2"></div>
+                <div class="dice-container m-2"></div>
+                <div class="dice-container m-2"></div>
+                <div class="dice-container m-2"></div>
+              </div>
+            </div>
+            <div class="actionButtons d-flex justify-content-around">
+              <button class="btn btn-success btn-new rounded-3 fs-5 text-white">
+                NOUVELLE PARTIE
+              </button>
+              <button id="throw"
+                class="btn btn-danger btn-throw rounded-3 fs-5 text-white"
+              >
+                LANCER
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4 bg-silver my-5 my-lg-0">
+          <h3 class="text-center m-4">FEUILLES DES SCORES</h3>
+          <table>
+            <thead> 
+              <tr>
+                <th>Opération</th>
+                <th>Calcul des points</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>TOTAL 1</td>
+                <td class="result total1" id="total1"></td>
+              </tr>
+              <tr>
+                <td>TOTAL 2</td>
+                <td class="result total2" id="total2"></td>
+              </tr>
+              <tr>
+                <td>TOTAL 3</td>
+                <td class="result total3" id="total3"></td>
+              </tr>
+              <tr>
+                <td>TOTAL 4</td>
+                <td class="result total4" id="total4"></td>
+              </tr>
+              <tr>
+                <td>TOTAL 5</td>
+                <td class="result total5" id="total5">1</td>
+              </tr>
+              <tr>
+                <td>TOTAL 6</td>
+                <td class="result total6" id="total6"></td>
+              </tr>
+              <tr>
+                <td>BONUS</td>
+                <td class="result bonus" id="bonus"></td>
+              </tr>
+              <tr>
+                <td>BRELAN</td>
+                <td class="result brelan" id="brelan"></td>
+              </tr>
+                <td>CARRE</td>
+                <td class="result square" id="square"></td>
+              </tr>
+              </tr>
+                <td>FULL</td>
+                <td class="result full" id="full"></td>
+              </tr>
+              </tr>
+                <td>PETITE SUITE</td>
+                <td class="result smallSuite" id="smallSuite"></td>
+              </tr>
+              </tr>
+                <td>GRANDE SUITE</td>
+                <td class="result bigSuite" id="bigSuite"></td>
+              </tr>
+              </tr>
+                <td>YAMS</td>
+                <td class="result yams" id="yams"></td>
+              </tr>
+              </tr>
+                <td>CHANCE</td>
+                <td class="result chance" id="chance"></td>
+              </tr>
+              </tr>
+                <td>TOTAL</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
     <script src="./public/assets/js/game.js"></script>
+    <script src="./public/assets/js/functions.js"></script>
   </body>
 </html>
