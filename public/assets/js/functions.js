@@ -206,9 +206,13 @@ const totalScore = (points) => {
 const saveResult = (e) => {
   removeListenerFromCelles();
   let cellOperation = e.target.classList[1];
-  e.targer.classList.remove(e.target.classList[1]);
-  e.targer.classList.add("savedResult");
-  points[cellOperation] = 3; //changer 3
+  e.target.classList.remove(e.target.classList[0]);
+  e.target.classList.add("savedResult");
+  points[cellOperation] = e.target.innerHTML;
+  resultCells = document.querySelectorAll(".result");
+  resultCells.forEach((resultCell) => {
+    resultCell.innerText = "";
+  });
 };
 
 //Ajouter des écouteurs d'événements aux cellules du tableau des résultats
@@ -225,18 +229,32 @@ const removeListenerFromCelles = () => {
   });
 };
 
-const array = [4, 6, 3, 5, 2];
-console.log(array);
-console.log("Total 1", calculatePoints("total1", array));
-console.log("Total 2", calculatePoints("total2", array));
-console.log("Total 3", calculatePoints("total3", array));
-console.log("Total 4", calculatePoints("total4", array));
-console.log("Total 5", calculatePoints("total5", array));
-console.log("Total 6", calculatePoints("total6", array));
-console.log("brelan", calculatePoints("brelan", array));
-console.log("square", calculatePoints("square", array));
-console.log("full", calculatePoints("full", array));
-console.log("smallSuite", calculatePoints("smallSuite", array));
-console.log("bigSuite", calculatePoints("bigSuite", array));
-console.log("yams", calculatePoints("yams", array));
-console.log("chance", calculatePoints("chance", array));
+//Ajouter des points d'opérations calculés au tableau
+const addValueInCell = () => {
+  for (const property in pointsInGame) {
+    const element = document.querySelector(`#${property}`);
+    if (!element.classList.contains("savedResult")) {
+      element.innerHTML = pointsInGame[property];
+    }
+  }
+};
+
+//Changer
+const throwAct = () => {
+  addListenerToCells();
+  listDes = [];
+  updatePointsInGame(firstThrow());
+};
+
+// Mettre à jour les données d'objet de points dynamiques
+const updatePointsInGame = (array) => {
+  console.log(array);
+  for (const property in pointsInGame) {
+    if (property != "bonus") {
+      pointsInGame[property] = calculatePoints(`${property}`, array);
+    } else {
+      pointsInGame[property] = 0;
+    }
+  }
+  addValueInCell(pointsInGame);
+};
