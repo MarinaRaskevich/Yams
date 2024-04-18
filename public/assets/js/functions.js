@@ -2,7 +2,7 @@ let firstThrow = () => {
   for (i = 1; i < 6; i++) {
     listDes.push(Math.floor(Math.random() * 6) + 1);
   }
-  console.log(listDes);
+  return listDes;
 };
 
 //Ajouter des chifres identiques dans une sélection aléatoire de dés (pour Total 1, 2 etc.)
@@ -128,9 +128,7 @@ const fullScore = (array) => {
   }
 };
 
-firstThrow();
-console.log(fullScore([3, 3, 3, 4, 2]));
-
+// Fonction principale de calcul de chaque opération
 const calculatePoints = (operation, distValues) => {
   let total;
   switch (operation) {
@@ -176,3 +174,69 @@ const calculatePoints = (operation, distValues) => {
   }
   return total;
 };
+
+// Ajouter un bonus
+const addBonus = (points) => {
+  let totalOperationsSum =
+    points.total1 +
+    points.total2 +
+    points.total3 +
+    points.total4 +
+    points.total5 +
+    points.total5 +
+    points.total6;
+
+  if (totalOperationsSum > 63) {
+    points.bonus = 35;
+  } else {
+    points.bonus = 0;
+  }
+};
+
+// La somme finale de tous les points
+const totalScore = (points) => {
+  let sum = 0;
+  for (let point of Object.values(points)) {
+    sum += point;
+  }
+  return sum;
+};
+
+//Enregistrer le résultat sélectionné par l'utilisateur dans l'objet final
+const saveResult = (e) => {
+  removeListenerFromCelles();
+  let cellOperation = e.target.classList[1];
+  e.targer.classList.remove(e.target.classList[1]);
+  e.targer.classList.add("savedResult");
+  points[cellOperation] = 3; //changer 3
+};
+
+//Ajouter des écouteurs d'événements aux cellules du tableau des résultats
+const addListenerToCells = () => {
+  resultCells.forEach((resultCell) => {
+    resultCell.addEventListener("click", saveResult);
+  });
+};
+
+//Supprimer des écouteurs d'événements aux cellules du tableau des résultats
+const removeListenerFromCelles = () => {
+  resultCells.forEach((resultCell) => {
+    resultCell.removeEventListener("click", saveResult);
+  });
+};
+
+const array = [4, 6, 3, 5, 2];
+console.log(array);
+console.log("Total 1", calculatePoints("total1", array));
+console.log("Total 2", calculatePoints("total2", array));
+console.log("Total 3", calculatePoints("total3", array));
+console.log("Total 4", calculatePoints("total4", array));
+console.log("Total 5", calculatePoints("total5", array));
+console.log("Total 6", calculatePoints("total6", array));
+console.log("brelan", calculatePoints("brelan", array));
+console.log("square", calculatePoints("square", array));
+console.log("full", calculatePoints("full", array));
+console.log("smallSuite", calculatePoints("smallSuite", array));
+console.log("bigSuite", calculatePoints("bigSuite", array));
+console.log("yams", calculatePoints("yams", array));
+console.log("chance", calculatePoints("chance", array));
