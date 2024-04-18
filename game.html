@@ -1,31 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yams</title>
     <link
       rel="stylesheet"
-      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="public/assets/css/style.css" />
+    <link rel="stylesheet" href="./public/assets/css/style.css" />
+    <title>Yams</title>
   </head>
   <body>
-    <header>
-      <img src="public/assets/img/yamsTitle.png" alt="" class="w-50">
+    <header class="text-center">
+      <img src="public/assets/img/yamsTitle.png" alt="">
     </header>
-    <div class="container pt-5">
+    <div class="container pt-5 vh-90">
       <div class="row h-100 align-content-center">
         <div class="col-12 col-lg-8 d-flex flex-column justify-content-center">
           <div>
             <div class="gameDesk d-flex flex-wrap justify-content-center align-items-center mb-3 border border-6">
-              <div class="container-throw d-flex"></div>
+              <div class="container-throw d-flex flex-wrap justify-content-center"></div>
               <div class="container-selected d-flex">
-                <div class="dice-container m-2"></div>
-                <div class="dice-container m-2"></div>
-                <div class="dice-container m-2"></div>
-                <div class="dice-container m-2"></div>
-                <div class="dice-container m-2"></div>
+                <div class="dice-container m-1"></div>
+                <div class="dice-container m-1"></div>
+                <div class="dice-container m-1"></div>
+                <div class="dice-container m-1"></div>
+                <div class="dice-container m-1"></div>
               </div>
             </div>
             <div class="actionButtons d-flex justify-content-around">
@@ -40,7 +40,7 @@
             </div>
           </div>
         </div>
-        <div class="col-12 col-lg-4 bg-silver my-5 my-lg-0">
+        <div class="col-11 mx-auto col-lg-4 bg-silver my-5 my-lg-0">
           <h3 class="text-center m-4">FEUILLES DES SCORES</h3>
           <table>
             <thead> 
@@ -114,7 +114,7 @@
         </div>
       </div>
     </div>
-    <script src="./public/assets/js/functions.js"></script>
     <script src="./public/assets/js/game.js"></script>
+    <script src="./public/assets/js/functions.js"></script>
   </body>
 </html>
