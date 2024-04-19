@@ -1,3 +1,14 @@
+@font-face {
+    font-family: "Courrier";
+    src: url(/public/assets/fonts/courier.ttf);
+}
+
+@font-face {
+    font-family: "Jockey";
+    src: url(/public/assets/fonts/JockeyOne-Regular.ttf);
+}
+
+
 body {
     background-color: #000 !important;
 }
@@ -49,19 +60,31 @@ div {
     bottom: 5%;
 }
 
-.border-6 {
+/* .border-6 {
     border: 10px solid rgb(84, 33, 9) !important;
-}
+} */
 
 /* Styles */
 .bg-silver {
     background-color: #D9D9D9 !important;
 }
 
+.border-image-wood {
+    background-image: url(/public/assets/img/border.jpg);
+    background-position: 20%;
+    padding: 1.2em;
+    margin-bottom: 2em;
+}
+
 .gameDesk {
     background-image: url(/public/assets/img/bg-desk.png);
     height: 60vh;
     position: relative;
+    padding: 2em;
+}
+
+.container-buttons {
+    font-family: "Jockey";
 }
 
 .container {
@@ -79,11 +102,17 @@ div {
 }
 
 table {
+    font-family: "Courier";
     margin: auto;
-    width: 80%;
+    width: 90%;
     th, tr , td {
-        padding: .2em;
+        padding: .4em;
         border: 1px solid black;
+    }
+    thead {
+        tr {
+            text-align: center;
+        }
     }
 }
   
@@ -96,10 +125,6 @@ table {
             width: 100%;
             height: 100%;
         }
-    }
-
-    .border-6 {
-        border: 25px solid rgb(84, 33, 9) !important;
     }
 
     .dice {

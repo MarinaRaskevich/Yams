@@ -18,17 +18,19 @@
       <div class="row h-100 align-content-center">
         <div class="col-12 col-lg-8 d-flex flex-column justify-content-center">
           <div>
-            <div class="gameDesk d-flex flex-wrap justify-content-center align-items-center mb-3 border border-6">
-              <div class="container-throw d-flex flex-wrap justify-content-center"></div>
-              <div class="container-selected d-flex">
-                <div class="dice-container m-1"></div>
-                <div class="dice-container m-1"></div>
-                <div class="dice-container m-1"></div>
-                <div class="dice-container m-1"></div>
-                <div class="dice-container m-1"></div>
+            <div class="border-image-wood">
+              <div class="gameDesk d-flex flex-wrap justify-content-center align-items-center">
+                <div class="container-throw d-flex flex-wrap justify-content-center"></div>
+                <div class="container-selected d-flex">
+                  <div class="dice-container m-1"></div>
+                  <div class="dice-container m-1"></div>
+                  <div class="dice-container m-1"></div>
+                  <div class="dice-container m-1"></div>
+                  <div class="dice-container m-1"></div>
+                </div>
               </div>
             </div>
-            <div class="actionButtons d-flex justify-content-around">
+            <div class="actionButtons container-buttons d-flex justify-content-around">
               <button class="btn btn-success btn-new rounded-3 fs-5 text-white">
                 NOUVELLE PARTIE
               </button>
@@ -82,32 +84,50 @@
                 <td>BRELAN</td>
                 <td class="result brelan" id="brelan"></td>
               </tr>
+              <tr>
                 <td>CARRE</td>
                 <td class="result square" id="square"></td>
               </tr>
-              </tr>
+              <tr>
                 <td>FULL</td>
                 <td class="result full" id="full"></td>
               </tr>
-              </tr>
+              <tr>
                 <td>PETITE SUITE</td>
                 <td class="result smallSuite" id="smallSuite"></td>
               </tr>
-              </tr>
+              <tr>
                 <td>GRANDE SUITE</td>
                 <td class="result bigSuite" id="bigSuite"></td>
               </tr>
-              </tr>
+              <tr>
                 <td>YAMS</td>
                 <td class="result yams" id="yams"></td>
               </tr>
-              </tr>
+              <tr>
                 <td>CHANCE</td>
                 <td class="result chance" id="chance"></td>
               </tr>
-              </tr>
+              <tr class="fw-bolder">
                 <td>TOTAL</td>
                 <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <table>
+            <thead class="mt-5">
+              <tr>
+                <p class="fs-3 text-center">Total score</p>
+              </tr>
+            </thead>
+            <tbody class="text-center">
+              <tr>
+                <td>P1</td>
+                <td>P3</td>
+                <td>P3</td>
+                <td>P3</td>
+                <td>P3</td>
+                <td>P3</td>
               </tr>
             </tbody>
           </table>
