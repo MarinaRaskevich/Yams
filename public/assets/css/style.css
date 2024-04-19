@@ -10,54 +10,54 @@
 
 
 body {
-    background-color: #000 !important;
+  background-color: #000 !important;
 }
 
 header {
-    margin-top: 1em;
+  margin-top: 1em;
 }
 
 header img {
-    max-width: 100px;
+  max-width: 100px;
 }
 
 div {
-    p {
-        font-size: 8em;
-        cursor: pointer;
-    }
+  p {
+    font-size: 8em;
+    cursor: pointer;
+  }
 }
 
 .dice-container {
-    background-color: rgba(217, 217, 217,.2) !important;
+  background-color: rgba(217, 217, 217, 0.2) !important;
+  width: 2.8em;
+  height: 2.8em;
+  img {
     width: 2.8em;
     height: 2.8em;
-    img {
-        width: 2.8em;
-        height: 2.8em;
-    }
+  }
 }
 
 .dice {
-    width: 4em;
-    height: 4em;
-    animation: animeThrowDice .2s;
+  width: 4em;
+  height: 4em;
+  animation: animeThrowDice 0.2s;
 }
 
 @keyframes animeThrowDice {
-    0%{
-        transform: rotateY(0deg);
-        transform: rotate(0deg);
-    }
-    100%{
-        transform: rotateY(360deg);
-        transform: rotate(360deg);
-    }
+  0% {
+    transform: rotateY(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 .container-selected {
-    position: absolute;
-    bottom: 5%;
+  position: absolute;
+  bottom: 5%;
 }
 
 /* .border-6 {
@@ -88,17 +88,17 @@ div {
 }
 
 .container {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .btn-new {
-    background-color: #167b43;
-    width: 40%;
+  background-color: #167b43;
+  width: 40%;
 }
 
 .btn-throw {
-    background-color: #a70d0d;
-    width: 40%;
+  background-color: #a70d0d;
+  width: 40%;
 }
 
 table {
@@ -115,7 +115,7 @@ table {
         }
     }
 }
-  
+
 @media (min-width: 767px) {
 
     .dice-container {
@@ -127,16 +127,16 @@ table {
         }
     }
 
-    .dice {
-        width: 5em;
-        height: 5em;
-    }
+  .dice {
+    width: 5em;
+    height: 5em;
+  }
 
-    .btn-new {
-        width: 20%;
-    }
+  .btn-new {
+    width: 20%;
+  }
 
-    .btn-throw {
-        width: 20%;
-    }
+  .btn-throw {
+    width: 20%;
+  }
 }

@@ -50,7 +50,6 @@ let pointsInGame = {
   total4: 0,
   total5: 0,
   total6: 0,
-  bonus: 0,
   brelan: 0,
   square: 0,
   full: 0,
