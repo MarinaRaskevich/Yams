@@ -250,6 +250,7 @@ let firstThrow = () => {
     listDices.push(Math.floor(Math.random() * 6) + 1);
   }
   diceChoice();
+  updatePointsInGame(listDices);
 };
 
 let secondThrow = () => {
@@ -304,14 +305,12 @@ let diceChoice = () => {
 
 const throwDices = () => {
   addListenerToCells();
-  updatePointsInGame(firstThrow());
   listDices = [];
 
   if (numberThrow == 0) {
     firstThrow();
   } else if (numberThrow == 1) {
     secondThrow();
-    // alert("Stop the GAME")
   } else if (numberThrow == 2) {
     thirdThrow();
     containerThrow.querySelectorAll("img").forEach((element) => {
