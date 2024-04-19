@@ -15,6 +15,8 @@ let containerSelectDice = containerSelected.querySelectorAll("div");
 // console.log(containerSelectDice);
 
 let numberThrow = 0;
+let stepsNumber = 13;
+let numberOfnone;
 
 let throwButton = document.getElementById("throw");
 

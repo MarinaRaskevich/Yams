@@ -254,10 +254,12 @@ let firstThrow = () => {
 };
 
 let secondThrow = () => {
-  let numberOfnone = 5 - document.querySelectorAll(".d-none").length;
-  for (let i = 0; i < numberOfnone; ++i) {
+  console.log(numberOfnone.length);
+  for (let i = 0; i < 5 - numberOfnone.length; ++i) {
     listDices.push(Math.floor(Math.random() * 6) + 1);
   }
+  diceChoice();
+  // updatePointsInGame(listDices);
 };
 
 let thirdThrow = () => {
@@ -266,12 +268,18 @@ let thirdThrow = () => {
   for (let i = 0; i < numberOfnone; ++i) {
     listDices.push(Math.floor(Math.random() * 6) + 1);
   }
+  containerThrow.querySelectorAll("img").forEach((element) => {
+    keptDices.push(element.dataset.diceValue);
+  });
+  // document.querySelector(".container-throw").classList.add("d-none");
+  diceChoice();
 };
 
 let counterDivSelected = 0;
 
 let diceChoice = () => {
   //PARSE LE TABLEAU DE DES
+  console.log(listDices);
   listDices.forEach((dice) => {
     let img = document.createElement("img");
     img.classList.add("dice");
@@ -305,6 +313,8 @@ let diceChoice = () => {
 
 const throwDices = () => {
   addListenerToCells();
+  numberOfnone = document.querySelectorAll(".d-none");
+  containerThrow.innerHTML = "";
   listDices = [];
 
   if (numberThrow == 0) {
@@ -313,14 +323,10 @@ const throwDices = () => {
     secondThrow();
   } else if (numberThrow == 2) {
     thirdThrow();
-    containerThrow.querySelectorAll("img").forEach((element) => {
-      keptDices.push(element.dataset.diceValue);
-    });
-    document.querySelector(".container-throw").classList.add("d-none");
   }
-  containerThrow.innerHTML = "";
-  diceChoice();
+  // diceChoice();
   numberThrow++;
+  console.log(numberThrow);
 };
 
 // firstThrow();
