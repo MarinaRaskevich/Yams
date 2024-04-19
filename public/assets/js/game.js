@@ -41,4 +41,4 @@ let pointsInGame = {
 
 //changer
 let throwButton = document.querySelector("#throw");
-throwButton.addEventListener("click", throwAct);
+throwButton.addEventListener("click", throwAct); // -> Suivre la logique des fonctions

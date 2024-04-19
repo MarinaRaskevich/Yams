@@ -239,11 +239,15 @@ const addValueInCell = () => {
   }
 };
 
-//Changer
 const throwAct = () => {
   addListenerToCells();
   listDes = [];
   updatePointsInGame(firstThrow());
+  // updatePointsInGame([1,4,5,6,4]);  Tu peux tester des fonctions avec différentes valeurs
+  // updatePointsInGame([1,1,1,6,4]);
+  // updatePointsInGame([1,1,1,4,4]);
+  // updatePointsInGame([1,4,4,4,4]);
+  // updatePointsInGame([3,1,5,5,5]);
 };
 
 // Mettre à jour les données d'objet de points dynamiques
