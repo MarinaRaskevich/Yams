@@ -282,6 +282,7 @@ let secondThrow = () => {
       img.classList.add("dice");
       img.setAttribute("data-value", keptDices[i]);
       img.setAttribute("src", `public/assets/img/${keptDices[i]}.png`);
+      img.addEventListener("click", backToContainerThrow);
       div.appendChild(img);
       counterDivSelected++;
     }
@@ -331,14 +332,27 @@ const backToContainerThrow = (e) => {
     let diceForShow = containerThrow.querySelector(`.${classForChose}`);
     diceForShow.classList.remove("d-none");
     e.target.parentElement.innerText = "";
-    console.log(keptDices);
     let value = e.target.dataset.value;
     let index = keptDices.indexOf(parseInt(value));
     if (index !== -1) {
       keptDices.splice(index, 1);
     }
   } else if (numberThrow == 2) {
-    // ;
+    let value = parseInt(e.target.dataset.value);
+    let index = keptDices.indexOf(value);
+    if (index !== -1) {
+      keptDices.splice(index, 1);
+    }
+    listDices.push(parseInt(e.target.dataset.value));
+    e.target.parentElement.innerText = "";
+    let img = document.createElement("img");
+    img.classList.add("dice");
+    img.setAttribute("data-dice-value", value);
+    img.setAttribute("src", `public/assets/img/${value}.png`);
+    containerThrow.appendChild(img);
+    console.log(listDices);
+    console.log(keptDices);
+    console.log(true);
   } else if (numberThrow == 3) {
   }
 };
