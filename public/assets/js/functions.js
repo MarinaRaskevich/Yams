@@ -274,6 +274,18 @@ let secondThrow = () => {
   for (let i = 0; i < 5 - numberOfnone.length; ++i) {
     listDices.push(Math.floor(Math.random() * 6) + 1);
   }
+  counterDivSelected = 0;
+  containerSelectDice.forEach((div, i) => {
+    div.innerHTML = "";
+    if (keptDices[i] != undefined) {
+      let img = document.createElement("img");
+      img.classList.add("dice");
+      img.setAttribute("data-value", keptDices[i]);
+      img.setAttribute("src", `public/assets/img/${keptDices[i]}.png`);
+      div.appendChild(img);
+      counterDivSelected++;
+    }
+  });
   diceChoice();
   updatePointsInGame([...listDices, ...keptDices]);
 };
@@ -314,15 +326,21 @@ const keepDices = (e) => {
 };
 
 const backToContainerThrow = (e) => {
-  if (numberThrow == 0) {
+  if (numberThrow == 1) {
     let classForChose = e.target.classList[1];
     let diceForShow = containerThrow.querySelector(`.${classForChose}`);
     diceForShow.classList.remove("d-none");
     e.target.parentElement.innerText = "";
-  } else if (numberThrow == 1) {
+    console.log(keptDices);
+    let value = e.target.dataset.value;
+    let index = keptDices.indexOf(parseInt(value));
+    if (index !== -1) {
+      keptDices.splice(index, 1);
+    }
   } else if (numberThrow == 2) {
+    // ;
+  } else if (numberThrow == 3) {
   }
-  // keptDices = keptDices.filter((value) => value == e.target.dataset.diceValue);
 };
 
 let diceChoice = () => {
