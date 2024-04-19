@@ -207,8 +207,6 @@ const saveResult = (e) => {
   resultCells.forEach((resultCell) => {
     resultCell.innerText = "";
   });
-  console.log(points);
-  console.log(pointsInGame);
   initialiseGame();
 };
 
@@ -223,7 +221,6 @@ const initialiseGame = () => {
     div.innerHTML = "";
   });
   containerThrow.innerHTML = "";
-  console.log(stepsNumber);
 };
 
 //Ajouter des écouteurs d'événements aux cellules du tableau des résultats
@@ -271,9 +268,15 @@ let firstThrow = () => {
 };
 
 let secondThrow = () => {
-  for (let i = 0; i < 5 - numberOfnone.length; ++i) {
+  for (let i = 0; i <= 5 - numberOfDice.length; ++i) {
     listDices.push(Math.floor(Math.random() * 6) + 1);
   }
+  initialiseContainerSelected();
+  diceChoice();
+  updatePointsInGame([...listDices, ...keptDices]);
+};
+
+const initialiseContainerSelected = () => {
   counterDivSelected = 0;
   containerSelectDice.forEach((div, i) => {
     div.innerHTML = "";
@@ -287,8 +290,6 @@ let secondThrow = () => {
       counterDivSelected++;
     }
   });
-  diceChoice();
-  updatePointsInGame([...listDices, ...keptDices]);
 };
 
 let thirdThrow = () => {
@@ -305,54 +306,59 @@ let thirdThrow = () => {
 };
 
 const keepDices = (e) => {
-  e.target.classList.add("d-none");
-  e.target.classList.add(`selected${counterDivSelected}`);
-  domRelatedDices.push(e.target.dataset.diceValue);
+  let value = parseInt(e.target.dataset.value);
+  containerThrow.removeChild(e.target);
 
   //TABLEAU QUI PERMET DE GARDER LE FIL AU VU DE LA MANIPULATION DES VALEURS
   //DU DOM QUI S'EFFACE
-  keptDices.push(parseInt(e.target.dataset.diceValue));
+  keptDices.push(value);
 
-  domRelatedDices.forEach((dice) => {
-    let img = document.createElement("img");
-    img.classList.add("dice");
-    img.setAttribute("data-value", dice);
-    img.setAttribute("src", `public/assets/img/${dice}.png`);
-    img.classList.add(`selected${counterDivSelected}`);
-    containerSelectDice[counterDivSelected].appendChild(img);
-    img.addEventListener("click", backToContainerThrow);
-    domRelatedDices = [];
-  });
+  let img = addDiceImage(value);
+  img.addEventListener("click", backToContainerThrow);
+  containerSelectDice[counterDivSelected].appendChild(img);
   counterDivSelected++;
+};
+
+const addDiceImage = (value) => {
+  let img = document.createElement("img");
+  img.classList.add("dice");
+  img.setAttribute("data-value", value);
+  img.setAttribute("src", `public/assets/img/${value}.png`);
+  return img;
 };
 
 const backToContainerThrow = (e) => {
   if (numberThrow == 1) {
-    let classForChose = e.target.classList[1];
-    let diceForShow = containerThrow.querySelector(`.${classForChose}`);
-    diceForShow.classList.remove("d-none");
+    let value = parseInt(e.target.dataset.value);
+    let img = addDiceImage(value);
+    img.addEventListener("click", keepDices);
+    containerThrow.appendChild(img);
     e.target.parentElement.innerText = "";
-    let value = e.target.dataset.value;
     let index = keptDices.indexOf(parseInt(value));
     if (index !== -1) {
       keptDices.splice(index, 1);
     }
+    console.log(listDices);
+    console.log(keptDices);
+    console.log(numberThrow);
+    initialiseContainerSelected();
   } else if (numberThrow == 2) {
     let value = parseInt(e.target.dataset.value);
     let index = keptDices.indexOf(value);
     if (index !== -1) {
       keptDices.splice(index, 1);
     }
-    listDices.push(parseInt(e.target.dataset.value));
+    listDices.push(value);
     e.target.parentElement.innerText = "";
     let img = document.createElement("img");
     img.classList.add("dice");
     img.setAttribute("data-dice-value", value);
     img.setAttribute("src", `public/assets/img/${value}.png`);
+    img.addEventListener("click", keepDices);
     containerThrow.appendChild(img);
+    console.log(true);
     console.log(listDices);
     console.log(keptDices);
-    console.log(true);
   } else if (numberThrow == 3) {
   }
 };
@@ -362,18 +368,18 @@ let diceChoice = () => {
   listDices.forEach((dice) => {
     let img = document.createElement("img");
     img.classList.add("dice");
-    img.setAttribute("data-dice-value", dice);
+    img.setAttribute("data-value", dice);
     img.setAttribute("src", `public/assets/img/${dice}.png`);
     //AJOUT DU Dé DANS LE DOM
     containerThrow.appendChild(img);
-
     img.addEventListener("click", keepDices);
   });
 };
 
 const throwDices = () => {
   addListenerToCells();
-  numberOfnone = document.querySelectorAll(".d-none");
+  numberOfDice = containerThrow.querySelectorAll(".dice");
+  console.log(numberOfDice);
   containerThrow.innerHTML = "";
   listDices = [];
 
