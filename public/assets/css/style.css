@@ -51,11 +51,9 @@ div {
 @keyframes animeThrowDice {
   0% {
     transform: translateY(250px) rotate(2500deg);
-    /* transform: rotate(0deg); */
   }
   100% {
     transform: translateY(0) rotate(0deg);
-    /* transform: rotate(360deg); */
   }
 }
 
@@ -63,10 +61,6 @@ div {
   position: absolute;
   bottom: 5%;
 }
-
-/* .border-6 {
-    border: 10px solid rgb(84, 33, 9) !important;
-} */
 
 /* Styles */
 .bg-silver {
