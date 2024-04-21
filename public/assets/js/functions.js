@@ -343,7 +343,7 @@ const backToContainerThrow = (e) => {
     if (index !== -1) {
       keptDices.splice(index, 1);
     }
-    listDices.push(parseInt(e.target.dataset.value));
+    listDices.push(value);
     e.target.parentElement.innerText = "";
     let img = document.createElement("img");
     img.classList.add("dice");
@@ -387,3 +387,42 @@ const throwDices = () => {
   }
   numberThrow++;
 };
+
+const triggerNewGame = () => {
+  keptDices = [];
+  listDices = [];
+  containerThrow.innerHTML = "";
+  containerSelected.querySelectorAll(".dice-container").forEach((diceImage) => {
+    diceImage.innerHTML = "";
+  })
+  resultCells.forEach((resultCell) => {
+    resultCell.innerText = "";
+  });
+}
+
+let score1 = 300; 
+let score2 = 100; 
+let score3 = 2500; 
+let partieNumber = 0;
+
+//JSON STRINGIFY AND PARSE
+const addScoreToLocalStorage = (score) => {
+  partieNumber++
+  const partResult = {
+    partie : partieNumber,
+    score : score,
+  }
+  if(localStorage.getItem("userData") !== null){
+    const partResults = JSON.parse(localStorage.getItem("userData"));
+    partResults.push(partResult);
+    localStorage.setItem("userData", JSON.stringify(partResults))
+  }else{
+    const partResults = [];
+    partResults.push(partResult);
+    localStorage.setItem("userData", JSON.stringify(partResults))
+  }
+}
+
+addScoreToLocalStorage(score1)
+addScoreToLocalStorage(score3)
+
