@@ -406,6 +406,9 @@ const triggerNewGame = () => {
   });
 }
 
+
+//LOCALSTORAGE
+
 let score1 = 300; 
 let score2 = 100; 
 let score3 = 2500; 
