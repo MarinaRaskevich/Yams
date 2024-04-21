@@ -268,7 +268,7 @@ let firstThrow = () => {
 };
 
 let secondThrow = () => {
-  for (let i = 0; i <= 5 - numberOfDice.length; ++i) {
+  for (let i = 0; i <= numberOfDice.length-1; ++i) {
     listDices.push(Math.floor(Math.random() * 6) + 1);
   }
   initialiseContainerSelected();
@@ -431,4 +431,5 @@ const addScoreToLocalStorage = (score) => {
 
 addScoreToLocalStorage(score1)
 addScoreToLocalStorage(score3)
+addScoreToLocalStorage(score2)
 
