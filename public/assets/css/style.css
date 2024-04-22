@@ -124,11 +124,42 @@ table thead tr {
     height: 5em;
   }
   .btn-new {
-    width: 20%;
+    width: 25%;
   }
   .btn-throw {
-    width: 20%;
+    width: 25%;
   }
 }
 
 /*# sourceMappingURL=style.css.map */
+
+@media (min-width: 992px) {
+  .buttonAccueil {
+    width: 100%;
+    max-width: 300px;
+    font-size: 1.5rem;
+  }
+}
+
+body {
+  background-color: black;
+}
+
+.buttonAccueil {
+  background-color: #01401c;
+  font-family: "jockey";
+  border: 2px solid #a70d0d;
+
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 15px;
+}
+.buttonAccueil:hover {
+  background-color: #012e15;
+}
+
+.modal-content {
+  background-color: #01401c;
+  font-family: "Courier New", Courier, monospace;
+  border: #a70d0d;
+}
