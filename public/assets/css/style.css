@@ -1,4 +1,32 @@
 /* Styles */
+.gameDesk {
+  background-image: url(/public/assets/img/bg-desk.png);
+  height: 60vh;
+}
+
+.container {
+  box-sizing: border-box;
+}
+
+.btn-new {
+  background-color: #167b43;
+  width: 40%;
+}
+
+.btn-throw {
+  background-color: #a70d0d;
+  width: 40%;
+}
+
+@media (min-width: 767px) {
+  .btn-new {
+    width: 20%;
+  }
+
+  .btn-throw {
+    width: 20%;
+  }
+}
 /* ---------------------page d'accueil */
 
 @font-face {
