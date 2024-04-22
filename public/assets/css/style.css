@@ -1,1 +1,44 @@
 /* Styles */
+/* ---------------------page d'accueil */
+
+@font-face {
+    font-family: 'jockey';
+    src: url(/public/assets/fonts/JockeyOne-Regular.ttf);
+}
+
+@media (min-width: 992px) { 
+    .buttonAccueil {
+      width: 100%;         
+      max-width: 300px;    
+      font-size: 1.5rem;   
+    }
+  }
+
+  body{
+    background-color:black;
+}
+
+.buttonAccueil{
+    background-color: #01401c;
+    font-family: 'jockey';
+    border: 2px solid #A70D0D;
+    
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 15px;
+}
+.buttonAccueil:hover {
+    background-color: #012e15;
+}
+
+.logo {
+    width: 50%;
+    height: auto;
+}
+
+.modal-content{
+    background-color: #01401c;
+    font-family:'Courier New', Courier, monospace;
+    border: #A70D0D;
+
+}
