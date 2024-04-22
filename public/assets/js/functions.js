@@ -212,14 +212,18 @@ const saveResult = (e) => {
 
 const initialiseGame = () => {
   stepsNumber--;
-  throwButton.classList.remove("disabled");
-  numberThrow = 0;
-  listDices = [];
-  keptDices = [];
-  counterDivSelected = 0;
-  containerSelectDice.forEach((div) => {
-    div.innerHTML = "";
-  });
+  if(stepsNumber === 12){
+    endGame();
+  }else{
+    throwButton.classList.remove("disabled");
+    numberThrow = 0;
+    listDices = [];
+    keptDices = [];
+    counterDivSelected = 0;
+    containerSelectDice.forEach((div) => {
+      div.innerHTML = "";
+    });
+  }
   containerThrow.innerHTML = "";
 };
 
@@ -409,12 +413,8 @@ const triggerNewGame = () => {
 
 //LOCALSTORAGE
 
-let score1 = 300; 
-let score2 = 100; 
-let score3 = 2500; 
 let partieNumber = 0;
 
-//JSON STRINGIFY AND PARSE
 const addScoreToLocalStorage = (score) => {
   partieNumber++
   const partResult = {
@@ -432,7 +432,10 @@ const addScoreToLocalStorage = (score) => {
   }
 }
 
-addScoreToLocalStorage(score1)
-addScoreToLocalStorage(score3)
-addScoreToLocalStorage(score2)
+const endGame = () => {
+  addBonus(points);
+  let total = totalScore(points);
+  console.log(total);
+  addScoreToLocalStorage(total)
+}
 

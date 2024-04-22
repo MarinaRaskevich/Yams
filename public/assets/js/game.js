@@ -13,6 +13,8 @@ let containerSelected =
 
 let containerSelectDice = containerSelected.querySelectorAll("div");
 
+let scores = document.getElementsByClassName(".score");
+
 let numberThrow = 0;
 let stepsNumber = 13;
 let numberOfnone;
