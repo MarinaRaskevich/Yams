@@ -196,31 +196,9 @@ const totalScore = (points) => {
 
 const initialiseGame = () => {
   stepsNumber--;
-  // throwButton.classList.remove("disabled");
-  // numberThrow = 0;
-  // listDices = [];
-  // keptDices = [];
-  // counterDivSelected = 0;
-  // containerSelectDice.forEach((div) => {
-  //   div.innerHTML = "";
-  // });
   if (stepsNumber === 11) {
     // triggerNewGame();
-  console.log(stepsNumber);
-  throwButton.classList.remove("disabled");
-  numberThrow = 0;
-  listDices = [];
-  keptDices = [];
-  counterDivSelected = 0;
-  containerSelectDice.forEach((div) => {
-    div.innerHTML = "";
-  });
-  if(stepsNumber === 12){
-
-    // triggerNewGame();
-    
-    endGame();
-  } else {
+    console.log(stepsNumber);
     throwButton.classList.remove("disabled");
     numberThrow = 0;
     listDices = [];
@@ -229,9 +207,24 @@ const initialiseGame = () => {
     containerSelectDice.forEach((div) => {
       div.innerHTML = "";
     });
-  }
-  containerThrow.innerHTML = "";
-};
+    if(stepsNumber === 12){
+
+      // triggerNewGame();
+      
+      endGame();
+    } else {
+      throwButton.classList.remove("disabled");
+      numberThrow = 0;
+      listDices = [];
+      keptDices = [];
+      counterDivSelected = 0;
+      containerSelectDice.forEach((div) => {
+        div.innerHTML = "";
+      });
+    }
+    containerThrow.innerHTML = "";
+  };
+}
 
 //Supprimer des écouteurs d'événements aux cellules du tableau des résultats
 const removeListenerFromCelles = () => {
@@ -421,4 +414,4 @@ const addScoreToLocalStorage = (score) => {
     partResults.push(partResult);
     localStorage.setItem("userData", JSON.stringify(partResults));
   }
-};
+}
