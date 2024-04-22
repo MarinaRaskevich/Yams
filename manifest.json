@@ -1,0 +1,34 @@
+{
+  "name": "Yams",
+  "short_name": "Yams",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#fdfdfd",
+  "icons": [
+    {
+      "src": "./public/assets/img/icons/AppIcon@2x.png",
+      "type": "image/png",
+      "sizes": "120x120"
+    },
+    {
+      "src": "./public/assets/img/icons/AppIcon@2x~ipad.png",
+      "type": "image/png",
+      "sizes": "152x152"
+    },
+    {
+      "src": "./public/assets/img/icons/AppIcon@3x.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    },
+    {
+      "src": "./public/assets/img/icons/play_store_512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "./public/assets/img/icons/AppIcon~ipad.png",
+      "type": "image/png",
+      "sizes": "76x76"
+    }
+  ]
+}
