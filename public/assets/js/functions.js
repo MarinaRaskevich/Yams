@@ -196,9 +196,10 @@ const totalScore = (points) => {
 
 const initialiseGame = () => {
   stepsNumber--;
-  if (stepsNumber === 11) {
+  if (stepsNumber === 0) {
     // triggerNewGame();
-    console.log(stepsNumber);
+    endGame();
+  } else {
     throwButton.classList.remove("disabled");
     numberThrow = 0;
     listDices = [];
@@ -207,23 +208,8 @@ const initialiseGame = () => {
     containerSelectDice.forEach((div) => {
       div.innerHTML = "";
     });
-    if (stepsNumber === 12) {
-      // triggerNewGame();
-
-      endGame();
-      triggerNewGame();
-    } else {
-      throwButton.classList.remove("disabled");
-      numberThrow = 0;
-      listDices = [];
-      keptDices = [];
-      counterDivSelected = 0;
-      containerSelectDice.forEach((div) => {
-        div.innerHTML = "";
-      });
-    }
-    containerThrow.innerHTML = "";
   }
+  containerThrow.innerHTML = "";
 };
 
 //Supprimer des écouteurs d'événements aux cellules du tableau des résultats
@@ -381,9 +367,11 @@ const triggerNewGame = () => {
   resultCells.forEach((resultCell) => {
     resultCell.innerText = "";
   });
-  // document.querySelectorAll(".savedResult").forEach((cell) => {
-  //   cell.innerText = "";
-  // });
+  document.querySelectorAll(".savedResult").forEach((cell) => {
+    cell.innerText = "";
+  });
+  bonusCell.innerText = "";
+  totalCell.innerText = "";
 };
 
 const endGame = () => {
@@ -394,12 +382,13 @@ const endGame = () => {
   let total = totalScore(points);
   totalCell.innerText = total;
   totalCell.classList.add("text-white", "bg-success");
-  console.log(total);
-  
-  containerThrow.innerHTML = `<p class="finalScoreMessage">Votre score pour la partie ${partNumber+1 + " est de " + total}<button>Continuer</button></p>`;
+  console.log(true);
+  let paragraphMessage = document.createElement("p");
+  paragraphMessage.classList.add("finalScoreMessage");
+  paragraphMessage.innerText = `Votre score pour la partie: ${total}. Cliquez sur le bouton pour entamer la nouvelle manche`;
+  gameDesk.appendChild(paragraphMessage);
   addScoreToLocalStorage(total);
 };
-
 
 //LOCALSTORAGE
 const addScoreToLocalStorage = (score) => {
