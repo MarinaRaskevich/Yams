@@ -204,6 +204,21 @@ const initialiseGame = () => {
   containerSelectDice.forEach((div) => {
     div.innerHTML = "";
   });
+  if(stepsNumber === 0){
+
+    triggerNewGame();
+    endGame();
+
+  }else{
+    throwButton.classList.remove("disabled");
+    numberThrow = 0;
+    listDices = [];
+    keptDices = [];
+    counterDivSelected = 0;
+    containerSelectDice.forEach((div) => {
+      div.innerHTML = "";
+    });
+  }
   containerThrow.innerHTML = "";
 };
 
@@ -354,6 +369,7 @@ const throwDices = () => {
 const triggerNewGame = () => {
   keptDices = [];
   listDices = [];
+  numberThrow = 0;
   containerThrow.innerHTML = "";
   containerSelected.querySelectorAll(".dice-container").forEach((diceImage) => {
     diceImage.innerHTML = "";
@@ -365,12 +381,8 @@ const triggerNewGame = () => {
 
 //LOCALSTORAGE
 
-let score1 = 300;
-let score2 = 100;
-let score3 = 2500;
 let partieNumber = 0;
 
-//JSON STRINGIFY AND PARSE
 const addScoreToLocalStorage = (score) => {
   partieNumber++;
   const partResult = {
@@ -388,6 +400,17 @@ const addScoreToLocalStorage = (score) => {
   }
 };
 
-addScoreToLocalStorage(score1);
-addScoreToLocalStorage(score3);
-addScoreToLocalStorage(score2);
+const endGame = () => {
+  stepsNumber = 13;
+  addBonus(points);
+  let total = totalScore(points);
+  console.log(total);
+  addScoreToLocalStorage(total);
+  insertScoreInArray();
+}
+
+const insertScoreInArray = () => {
+  let local = localStorage.getItem("userData");
+  console.log(local)
+}
+
