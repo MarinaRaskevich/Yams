@@ -409,9 +409,6 @@ const triggerNewGame = () => {
 
 //LOCALSTORAGE
 
-let score1 = 300;
-let score2 = 100;
-let score3 = 2500;
 let partieNumber = 0;
 
 const addScoreToLocalStorage = (score) => {
@@ -431,9 +428,6 @@ const addScoreToLocalStorage = (score) => {
   }
 };
 
-addScoreToLocalStorage(score1);
-addScoreToLocalStorage(score3);
-addScoreToLocalStorage(score2);
 const endGame = () => {
   addBonus(points);
   let total = totalScore(points);
