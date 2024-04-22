@@ -100,7 +100,7 @@ table {
 table th,
 table tr,
 table td {
-  padding: 0.4em;
+  padding: 0.2em;
   border: 1px solid black;
 }
 table thead tr {
