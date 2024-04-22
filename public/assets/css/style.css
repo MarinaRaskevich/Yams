@@ -18,11 +18,6 @@ header img {
   max-width: 100px;
 }
 
-h1,
-h2 {
-  font-family: Jockey;
-}
-
 .dice-container {
   background-color: rgba(217, 217, 217, 0.2) !important;
   width: 2.8em;
@@ -35,6 +30,16 @@ h2 {
 
 .container-throw .dice {
   animation: animeThrowDice 0.5s;
+}
+
+.containerMessageGameDesk {
+  width: 100%;
+  text-align: center;
+}
+.containerMessageGameDesk p {
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
 }
 
 .dice {
@@ -84,12 +89,12 @@ h2 {
 
 .btn-new {
   background-color: #167b43;
-  width: 35%;
+  width: 40%;
 }
 
 .btn-throw {
   background-color: #a70d0d;
-  width: 35%;
+  width: 40%;
 }
 
 table {
@@ -105,17 +110,6 @@ table td {
 }
 table thead tr {
   text-align: center;
-  th,
-  tr,
-  td {
-    padding: 0.2em;
-    border: 1px solid black;
-  }
-  thead {
-    tr {
-      text-align: center;
-    }
-  }
 }
 
 @media (min-width: 767px) {
@@ -132,40 +126,11 @@ table thead tr {
     height: 5em;
   }
   .btn-new {
-    width: 25%;
+    width: 20%;
   }
   .btn-throw {
-    width: 25%;
+    width: 20%;
   }
 }
 
-@media (min-width: 992px) {
-  .buttonAccueil {
-    width: 100%;
-    max-width: 300px;
-    font-size: 1.5rem;
-  }
-}
-
-body {
-  background-color: black;
-}
-
-.buttonAccueil {
-  background-color: #01401c;
-  font-family: "jockey";
-  border: 2px solid #a70d0d;
-
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  border-radius: 15px;
-}
-.buttonAccueil:hover {
-  background-color: #012e15;
-}
-
-.modal-content {
-  background-color: #01401c;
-  font-family: "Courier New", Courier, monospace;
-  border: #a70d0d;
-}
+/*# sourceMappingURL=style.css.map */

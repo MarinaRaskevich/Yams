@@ -196,22 +196,13 @@ const totalScore = (points) => {
 
 const initialiseGame = () => {
   stepsNumber--;
-  if (stepsNumber === 11) {
-    // triggerNewGame();
-    console.log(stepsNumber);
-    throwButton.classList.remove("disabled");
-    numberThrow = 0;
-    listDices = [];
-    keptDices = [];
-    counterDivSelected = 0;
-    containerSelectDice.forEach((div) => {
-      div.innerHTML = "";
-    });
+  if(document.getElementsByClassName("containerMessageGameDesk")[0]){
+    alert(1)
+  }else{
+    
     if(stepsNumber === 12){
-
-      // triggerNewGame();
-      
       endGame();
+      triggerNewGame();
     } else {
       throwButton.classList.remove("disabled");
       numberThrow = 0;
@@ -395,8 +386,14 @@ const endGame = () => {
   totalCell.innerText = total;
   totalCell.classList.add("text-white", "bg-success");
   console.log(total);
+
+  let messageBloc = document.createElement("div");
+  messageBloc.classList.add("containerMessageGameDesk");
+  messageBloc.innerHTML = `<p>Votre score pour la partie ${partNumber+1 + " est de " + total}</p>`;
+  document.querySelector(".gameDesk").appendChild(messageBloc);
   addScoreToLocalStorage(total);
 };
+
 
 //LOCALSTORAGE
 const addScoreToLocalStorage = (score) => {

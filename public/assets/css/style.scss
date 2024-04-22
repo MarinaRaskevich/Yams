@@ -20,13 +20,6 @@
     max-width: 100px;
   }
   
-  div {
-    p {
-      font-size: 8em;
-      cursor: pointer;
-    }
-  }
-  
   .dice-container {
     background-color: rgba(217, 217, 217, 0.2) !important;
     width: 2.8em;
@@ -42,6 +35,17 @@
       animation: animeThrowDice 0.5s;
     }
   }
+
+  .containerMessageGameDesk {
+    width: 100%;
+    text-align: center;
+    p {
+      color: white;
+      font-weight: bold;
+      font-size: 2em;
+    }
+  }
+
   
   .dice {
     width: 4em;

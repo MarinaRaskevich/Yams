@@ -13,6 +13,7 @@ let containerSelected =
   document.getElementsByClassName("container-selected")[0];
 let containerSelectDice = containerSelected.querySelectorAll("div");
 
+
 let scores = document.getElementsByClassName(".score");
 
 let throwButton = document.getElementById("throw");
@@ -22,6 +23,7 @@ let totalCell = document.querySelector("#total");
 
 throwButton.addEventListener("click", throwDices);
 newGame.addEventListener("click", triggerNewGame);
+
 
 let resultCells = document.querySelectorAll(".result");
 
