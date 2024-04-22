@@ -194,24 +194,8 @@ const totalScore = (points) => {
   return sum;
 };
 
-//Enregistrer le résultat sélectionné par l'utilisateur dans l'objet final
-const saveResult = (e) => {
-  removeListenerFromCelles();
-  let cellOperation = e.target.classList[1];
-  e.target.classList.remove(e.target.classList[0]);
-  e.target.classList.add("savedResult");
-  e.target.classList.add("text-danger");
-  points[cellOperation] = parseInt(e.target.innerHTML);
-  resultCells = document.querySelectorAll(".result");
-  resultCells.forEach((resultCell) => {
-    resultCell.innerText = "";
-  });
-  initialiseGame();
-};
-
 const initialiseGame = () => {
   stepsNumber--;
-  console.log(stepsNumber);
   throwButton.classList.remove("disabled");
   numberThrow = 0;
   listDices = [];
@@ -223,17 +207,32 @@ const initialiseGame = () => {
   containerThrow.innerHTML = "";
 };
 
-//Ajouter des écouteurs d'événements aux cellules du tableau des résultats
-const addListenerToCells = () => {
-  resultCells.forEach((resultCell) => {
-    resultCell.addEventListener("click", saveResult);
-  });
-};
-
 //Supprimer des écouteurs d'événements aux cellules du tableau des résultats
 const removeListenerFromCelles = () => {
   resultCells.forEach((resultCell) => {
     resultCell.removeEventListener("click", saveResult);
+  });
+};
+
+//Enregistrer le résultat sélectionné par l'utilisateur dans l'objet final
+const saveResult = (e) => {
+  removeListenerFromCelles();
+  let cellOperation = e.target.classList[1];
+  e.target.classList.remove(e.target.classList[0]);
+  e.target.classList.add("savedResult");
+  e.target.classList.add("text-white", "bg-success");
+  points[cellOperation] = parseInt(e.target.innerHTML);
+  resultCells = document.querySelectorAll(".result");
+  resultCells.forEach((resultCell) => {
+    resultCell.innerText = "";
+  });
+  initialiseGame();
+};
+
+//Ajouter des écouteurs d'événements aux cellules du tableau des résultats
+const addListenerToCells = () => {
+  resultCells.forEach((resultCell) => {
+    resultCell.addEventListener("click", saveResult);
   });
 };
 
@@ -259,61 +258,6 @@ const updatePointsInGame = (array) => {
   addValueInCell(pointsInGame);
 };
 
-let firstThrow = () => {
-  for (i = 1; i < 6; i++) {
-    listDices.push(Math.floor(Math.random() * 6) + 1);
-  }
-  diceChoice();
-  updatePointsInGame(listDices);
-};
-
-let secondThrow = () => {
-  for (let i = 0; i <= numberOfDice.length - 1; ++i) {
-    listDices.push(Math.floor(Math.random() * 6) + 1);
-  }
-  initialiseContainerSelected();
-  diceChoice();
-  updatePointsInGame([...listDices, ...keptDices]);
-};
-
-let thirdThrow = () => {
-  for (let i = 0; i <= numberOfDice.length - 1; ++i) {
-    listDices.push(Math.floor(Math.random() * 6) + 1);
-  }
-  diceChoice();
-  updatePointsInGame([...listDices, ...keptDices]);
-};
-
-const initialiseContainerSelected = () => {
-  counterDivSelected = 0;
-  containerSelectDice.forEach((div, i) => {
-    div.innerHTML = "";
-    if (keptDices[i] != undefined) {
-      let img = document.createElement("img");
-      img.classList.add("dice");
-      img.setAttribute("data-value", keptDices[i]);
-      img.setAttribute("src", `public/assets/img/${keptDices[i]}.png`);
-      img.addEventListener("click", backToContainerThrow);
-      div.appendChild(img);
-      counterDivSelected++;
-    }
-  });
-};
-
-const keepDices = (e) => {
-  let value = parseInt(e.target.dataset.value);
-  containerThrow.removeChild(e.target);
-
-  //TABLEAU QUI PERMET DE GARDER LE FIL AU VU DE LA MANIPULATION DES VALEURS
-  //DU DOM QUI S'EFFACE
-  keptDices.push(value);
-
-  let img = addDiceImage(value);
-  img.addEventListener("click", backToContainerThrow);
-  containerSelectDice[counterDivSelected].appendChild(img);
-  counterDivSelected++;
-};
-
 const addDiceImage = (value) => {
   let img = document.createElement("img");
   img.classList.add("dice");
@@ -322,34 +266,43 @@ const addDiceImage = (value) => {
   return img;
 };
 
+const initialiseContainerSelected = () => {
+  counterDivSelected = 0;
+  containerSelectDice.forEach((div, i) => {
+    div.innerHTML = "";
+    if (keptDices[i] != undefined) {
+      let img = addDiceImage(keptDices[i]);
+      img.addEventListener("click", backToContainerThrow);
+      div.appendChild(img);
+      counterDivSelected++;
+    }
+  });
+};
+
 const backToContainerThrow = (e) => {
-  if (numberThrow == 1) {
-    let value = parseInt(e.target.dataset.value);
-    let img = addDiceImage(value);
-    img.addEventListener("click", keepDices);
-    containerThrow.appendChild(img);
-    e.target.parentElement.innerText = "";
-    let index = keptDices.indexOf(parseInt(value));
-    if (index !== -1) {
-      keptDices.splice(index, 1);
-    }
-    initialiseContainerSelected();
-  } else if (numberThrow == 2) {
-    let value = parseInt(e.target.dataset.value);
-    let index = keptDices.indexOf(value);
-    if (index !== -1) {
-      keptDices.splice(index, 1);
-    }
-    listDices.push(value);
-    e.target.parentElement.innerText = "";
-    let img = document.createElement("img");
-    img.classList.add("dice");
-    img.setAttribute("data-dice-value", value);
-    img.setAttribute("src", `public/assets/img/${value}.png`);
-    img.addEventListener("click", keepDices);
-    containerThrow.appendChild(img);
-  } else if (numberThrow == 3) {
+  let value = parseInt(e.target.dataset.value);
+  let img = addDiceImage(value);
+  img.addEventListener("click", keepDices);
+  containerThrow.appendChild(img);
+  e.target.parentElement.innerText = "";
+  let index = keptDices.indexOf(parseInt(value));
+  if (index !== -1) {
+    keptDices.splice(index, 1);
   }
+  initialiseContainerSelected();
+};
+
+const keepDices = (e) => {
+  let value = parseInt(e.target.dataset.value);
+  containerThrow.removeChild(e.target);
+
+  //TABLEAU QUI PERMET DE GARDER LE FIL AU VU DE LA MANIPULATION DES VALEURS DU DOM QUI S'EFFACE
+  keptDices.push(value);
+
+  let img = addDiceImage(value);
+  img.addEventListener("click", backToContainerThrow);
+  containerSelectDice[counterDivSelected].appendChild(img);
+  counterDivSelected++;
 };
 
 let diceChoice = () => {
@@ -365,19 +318,34 @@ let diceChoice = () => {
   });
 };
 
+let firstThrow = () => {
+  for (i = 1; i < 6; i++) {
+    listDices.push(Math.floor(Math.random() * 6) + 1);
+  }
+  diceChoice();
+  updatePointsInGame(listDices);
+};
+
+const nextThrows = () => {
+  for (let i = 0; i <= numberOfDice.length - 1; ++i) {
+    listDices.push(Math.floor(Math.random() * 6) + 1);
+  }
+  diceChoice();
+  updatePointsInGame([...listDices, ...keptDices]);
+};
+
 const throwDices = () => {
   addListenerToCells();
   numberOfDice = containerThrow.querySelectorAll(".dice");
-  console.log(numberOfDice);
   containerThrow.innerHTML = "";
   listDices = [];
 
   if (numberThrow == 0) {
     firstThrow();
   } else if (numberThrow == 1) {
-    secondThrow();
+    nextThrows();
   } else if (numberThrow == 2) {
-    thirdThrow();
+    nextThrows();
     throwButton.classList.add("disabled");
   }
   numberThrow++;
