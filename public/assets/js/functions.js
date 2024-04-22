@@ -196,20 +196,9 @@ const totalScore = (points) => {
 
 const initialiseGame = () => {
   stepsNumber--;
-  throwButton.classList.remove("disabled");
-  numberThrow = 0;
-  listDices = [];
-  keptDices = [];
-  counterDivSelected = 0;
-  containerSelectDice.forEach((div) => {
-    div.innerHTML = "";
-  });
-  if(stepsNumber === 0){
-
-    triggerNewGame();
-    endGame();
-
-  }else{
+  if (stepsNumber === 11) {
+    // triggerNewGame();
+    console.log(stepsNumber);
     throwButton.classList.remove("disabled");
     numberThrow = 0;
     listDices = [];
@@ -218,9 +207,24 @@ const initialiseGame = () => {
     containerSelectDice.forEach((div) => {
       div.innerHTML = "";
     });
-  }
-  containerThrow.innerHTML = "";
-};
+    if(stepsNumber === 12){
+
+      // triggerNewGame();
+      
+      endGame();
+    } else {
+      throwButton.classList.remove("disabled");
+      numberThrow = 0;
+      listDices = [];
+      keptDices = [];
+      counterDivSelected = 0;
+      containerSelectDice.forEach((div) => {
+        div.innerHTML = "";
+      });
+    }
+    containerThrow.innerHTML = "";
+  };
+}
 
 //Supprimer des écouteurs d'événements aux cellules du tableau des résultats
 const removeListenerFromCelles = () => {
@@ -377,16 +381,28 @@ const triggerNewGame = () => {
   resultCells.forEach((resultCell) => {
     resultCell.innerText = "";
   });
+  // document.querySelectorAll(".savedResult").forEach((cell) => {
+  //   cell.innerText = "";
+  // });
+};
+
+const endGame = () => {
+  stepsNumber = 13;
+  addBonus(points);
+  bonusCell.innerText = points.bonus;
+  bonusCell.classList.add("text-white", "bg-success");
+  let total = totalScore(points);
+  totalCell.innerText = total;
+  totalCell.classList.add("text-white", "bg-success");
+  console.log(total);
+  addScoreToLocalStorage(total);
 };
 
 //LOCALSTORAGE
-
-let partieNumber = 0;
-
 const addScoreToLocalStorage = (score) => {
-  partieNumber++;
+  partNumber++;
   const partResult = {
-    partie: partieNumber,
+    partie: partNumber,
     score: score,
   };
   if (localStorage.getItem("userData") !== null) {
@@ -398,19 +414,4 @@ const addScoreToLocalStorage = (score) => {
     partResults.push(partResult);
     localStorage.setItem("userData", JSON.stringify(partResults));
   }
-};
-
-const endGame = () => {
-  stepsNumber = 13;
-  addBonus(points);
-  let total = totalScore(points);
-  console.log(total);
-  addScoreToLocalStorage(total);
-  insertScoreInArray();
 }
-
-const insertScoreInArray = () => {
-  let local = localStorage.getItem("userData");
-  console.log(local)
-}
-

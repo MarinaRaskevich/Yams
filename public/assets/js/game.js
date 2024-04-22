@@ -6,6 +6,7 @@ let numberThrow = 0;
 let stepsNumber = 13;
 let numberOfnone;
 let arrayInGame;
+let partNumber = 0;
 
 let containerThrow = document.getElementsByClassName("container-throw")[0];
 let containerSelected =
@@ -16,10 +17,10 @@ let scores = document.getElementsByClassName(".score");
 
 let throwButton = document.getElementById("throw");
 let newGame = document.getElementsByClassName("btn-new")[0];
+let bonusCell = document.querySelector("#bonus");
+let totalCell = document.querySelector("#total");
 
 throwButton.addEventListener("click", throwDices);
-newGame.addEventListener("click", triggerNewGame);
-
 newGame.addEventListener("click", triggerNewGame);
 
 let resultCells = document.querySelectorAll(".result");
