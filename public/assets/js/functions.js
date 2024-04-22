@@ -197,7 +197,7 @@ const totalScore = (points) => {
 const initialiseGame = () => {
   stepsNumber--;
   if(document.getElementsByClassName("containerMessageGameDesk")[0]){
-    alert(1)
+    
   }else{
     
     if(stepsNumber === 12){
@@ -386,11 +386,8 @@ const endGame = () => {
   totalCell.innerText = total;
   totalCell.classList.add("text-white", "bg-success");
   console.log(total);
-
-  let messageBloc = document.createElement("div");
-  messageBloc.classList.add("containerMessageGameDesk");
-  messageBloc.innerHTML = `<p>Votre score pour la partie ${partNumber+1 + " est de " + total}</p>`;
-  document.querySelector(".gameDesk").appendChild(messageBloc);
+  
+  containerThrow.innerHTML = `<p class="finalScoreMessage">Votre score pour la partie ${partNumber+1 + " est de " + total}<button>Continuer</button></p>`;
   addScoreToLocalStorage(total);
 };
 

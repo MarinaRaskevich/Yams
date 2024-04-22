@@ -13,29 +13,14 @@
   </head>
   <body>
     <div class="container">
-      <div class="row my-3 align-content-center">
-        <div class="col-12 col-lg-8">
+      <div class="row my-3 justify-content-center align-content-center">
+        <div class="col-12 col-lg-10">
           <h1 class="text-white mb-0">Yams</h1>
-          <a href="index.html" class="text-white"> &#x2039&#x2039 Revenir à la page d'accueil</a
-          >
-          <div class="d-flex flex-column justify-content-center mt-3">
-    <div class="container vh-100">
-    <div class="container">
-      <h1 class="text-white mb-0">Yams</h1>
-      <a href="index.html" class="text-white"> &#x2039&#x2039 Revenir à la page d'accueil</a
-      >
-      <div class="row h-100 align-content-center">
-      <a href="index.html" class="text-white"> &#x2039&#x2039 Revenir sur la page d'accueil</a>
-      <div class="row align-content-center">
-        <div class="col-12 col-lg-8 d-flex flex-column justify-content-center">
-          <div>
+          <a href="index.html" class="text-white"> &#x2039&#x2039 Revenir à la page d'accueil</a>
+          <div class="d-flex flex-column justify-content-center mt-3"><div>
             <div class="border-image-wood">
-              <div
-                class="gameDesk d-flex flex-wrap justify-content-center align-items-center"
-              >
-                <div
-                  class="container-throw d-flex flex-wrap justify-content-center"
-                ></div>
+              <div class="gameDesk d-flex flex-wrap justify-content-center align-items-center">
+                <div class="container-throw d-flex flex-wrap justify-content-center"></div>
                 <div class="container-selected d-flex">
                   <div class="dice-container m-1"></div>
                   <div class="dice-container m-1"></div>
@@ -45,16 +30,11 @@
                 </div>
               </div>
             </div>
-            <div
-              class="actionButtons container-buttons d-flex justify-content-around"
-            >
+            <div class="actionButtons container-buttons d-flex justify-content-around">
               <button class="btn btn-success btn-new rounded-3 fs-5 text-white">
                 NOUVELLE PARTIE
               </button>
-              <button
-                id="throw"
-                class="btn btn-danger btn-throw rounded-3 fs-5 text-white"
-              >
+              <button id="throw" class="btn btn-danger btn-throw rounded-3 fs-5 text-white">
                 LANCER
               </button>
             </div>
@@ -71,72 +51,58 @@
             </thead>
             <tbody>
               <tr>
-                <td title="Cumul des 1">TOTAL 1</td>
                 <td class="fw-bold" title="Cumul des 1">TOTAL 1</td>
                 <td class="result total1" id="total1"></td>
               </tr>
               <tr>
-                <td title="Cumul des 2">TOTAL 2</td>
                 <td class="fw-bold" title="Cumul des 2">TOTAL 2</td>
                 <td class="result total2" id="total2"></td>
               </tr>
               <tr>
-                <td title="Cumul des 3">TOTAL 3</td>
                 <td class="fw-bold" title="Cumul des 3">TOTAL 3</td>
                 <td class="result total3" id="total3"></td>
               </tr>
               <tr>
-                <td title="Cumul des 4">TOTAL 4</td>
                 <td class="fw-bold" title="Cumul des 4">TOTAL 4</td>
                 <td class="result total4" id="total4"></td>
               </tr>
               <tr>
-                <td title="Cumul des 5">TOTAL 5</td>
                 <td class="fw-bold" title="Cumul des 5">TOTAL 5</td>
                 <td class="result total5" id="total5"></td>
               </tr>
               <tr>
-                <td title="Cumul des 6">TOTAL 6</td>
                 <td class="fw-bold" title="Cumul des 6">TOTAL 6</td>
                 <td class="result total6" id="total6"></td>
               </tr>
               <tr>
-                <td title="Si le cumul de Total 1, 2, 3, 4, 5 et 6 > 63pts : 35pts">BONUS</td>
                 <td class="fw-bold" title="Si le cumul de Total 1, 2, 3, 4, 5 et 6 > 63pts : 35pts">BONUS</td>
                 <td class="bonus" id="bonus"></td>
               </tr>
               <tr>
-                <td title="Cumul des 3 dés identiques">BRELAN</td>
                 <td class="fw-bold" title="Cumul des 3 dés identiques">BRELAN</td>
                 <td class="result brelan" id="brelan"></td>
               </tr>
               <tr>
-                <td title="Cumul des 4 dés identiques">CARRE</td>
                 <td class="fw-bold" title="Cumul des 4 dés identiques">CARRE</td>
                 <td class="result square" id="square"></td>
               </tr>
               <tr>
-                <td title="Si 2 dés identiques (paire) et 3 dés identiques (brelan) : 25pts">FULL</td>
                 <td class="fw-bold" title="Si 2 dés identiques (paire) et 3 dés identiques (brelan) : 25pts">FULL</td>
                 <td class="result full" id="full"></td>
               </tr>
               <tr>
-                <td title="Si les valeurs 1, 2, 3, 4 et 5 sont présentes : 30pts">PETITE SUITE</td>
                 <td class="fw-bold" title="Si les valeurs 1, 2, 3, 4 et 5 sont présentes : 30pts">PETITE SUITE</td>
                 <td class="result smallSuite" id="smallSuite"></td>
               </tr>
               <tr>
-                <td title="Si les valeurs 2, 3, 4, 5 et 6 sont présentes : 40pts">GRANDE SUITE</td>
                 <td class="fw-bold" title="Si les valeurs 2, 3, 4, 5 et 6 sont présentes : 40pts">GRANDE SUITE</td>
                 <td class="result bigSuite" id="bigSuite"></td>
               </tr>
               <tr>
-                <td title="Si 5 dés identiques : 50pts">YAMS</td>
                 <td class="fw-bold" title="Si 5 dés identiques : 50pts">YAMS</td>
                 <td class="result yams" id="yams"></td>
               </tr>
               <tr>
-                <td title="Cumul des 5 dés">CHANCE</td>
                 <td class="fw-bold" title="Cumul des 5 dés">CHANCE</td>
                 <td class="result chance" id="chance"></td>
               </tr>
