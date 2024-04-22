@@ -1,32 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="public/assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./public/assets/css/style.css" />
+  <title>Yams</title>
 </head>
+
 <body>
-
-    <div class="d-flex">
-        <p id="de-1"></p>
-        <p id="de-2"></p>
-        <p id="de-3"></p>
-        <p id="de-4"></p>
-        <p id="de-5"></p> 
+  <div class="container d-flex align-items-center justify-content-center vh-100">
+    <div class="row gy-3">
+      <div class="col-12 d-flex justify-content-center ">
+        <img src="./public/assets/img/yamsTitle.png" alt="logo du jeu Yams" class="img-fluid">
+      </div>
+      <div class="col-12 col-lg-6 d-flex justify-content-lg-end justify-content-center rounded-3">
+        <a href="game.html" id="game" class="buttonAccueil text-center text-decoration-none text-white px-3 py-2 fs-3">Jouer</a>
+      </div>
+      <div class="col-12 col-lg-6 d-flex justify-content-lg-start justify-content-center">
+        <button id="rule" class="buttonAccueil text-white px-3 py-2 fs-3" data-bs-toggle="modal"
+          data-bs-target="#rulesModal">Règle du jeu</button>
+      </div>
     </div>
-
-    <div class="d-flex">
-        <p id="de-1-selected"></p>
-        <p id="de-2-selected"></p>
-        <p id="de-3-selected"></p>
-        <p id="de-4-selected"></p>
-        <p id="de-5-selected"></p>
+  </div>
+  <!-- Modal  -->
+  <div class="modal fade" id="rulesModal" tabindex="-1" aria-labelledby="rulesModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-white">
+          <h1>Règles du Yams </h1>
+          <p>
+            Objectif du jeu :<br><br>
+            Le but du Yams en mode solo est de marquer le plus de points possible en lançant cinq dés et en obtenant
+            différentes combinaisons de nombres ou de figures.
+            <br><br>
+            Déroulement du jeu :
+          <ol>
+            <li><strong>Lancer des dés :</strong>
+              <ul>
+                <li>Vous commencez par lancer les 5 dés.</li>
+                <li>Après le premier lancer, vous pouvez choisir de relancer certains dés jusqu'à trois fois au total
+                  pour obtenir la combinaison souhaitée.</li>
+              </ul>
+            </li>
+            <li><strong>Combinaisons et points :</strong>
+              <ul>
+                <li>1 à 6 : Total des dés correspondant (par exemple, trois 4 donneraient 12 points pour la combinaison
+                  "4").</li>
+                <li>Brelan : Trois dés identiques. Le score est la somme de tous les dés.</li>
+                <li>Carré : Quatre dés identiques. Le score est la somme de tous les dés.</li>
+                <li>Full : Un brelan + une paire. Il vaut 25 points.</li>
+                <li>Petite suite : 4 dés consécutifs. Elle vaut 30 points.</li>
+                <li>Grande suite : 5 dés consécutifs. Elle vaut 40 points.</li>
+                <li>Bonus : Si le cumul de Total 1, 2, 3, 4, 5 et 6 > 63pts : 35pts</li>
+                <li>Yams : Cinq dés identiques. Il vaut 50 points.</li>
+                <li>Chance : Somme de tous les dés, sans condition particulière.</li>
+              </ul>
+            </li>
+            <li><strong>Feuille de score :</strong>
+              <ul>
+                <li>Après chaque lancer, vous devez choisir une combinaison et marquer votre score correspondant sur la
+                  feuille de score.</li>
+                <li>Une fois une combinaison choisie et le score marqué, cette combinaison ne peut plus être utilisée
+                  pour les lancers suivants.</li>
+                <li>Le jeu se poursuit jusqu'à ce que vous ayez rempli toutes les combinaisons sur la feuille de score
+                  ou que vous ayez terminé un nombre prédéfini de tours.</li>
+              </ul>
+            </li>
+            <li><strong>Fin du jeu :</strong>
+              <ul>
+                <li>Après avoir rempli toutes les combinaisons ou atteint le nombre de tours prédéfini, le jeu se
+                  termine.</li>
+                <li>Votre score total est calculé en additionnant tous les points obtenus.</li>
+                <li>Essayez de battre votre propre record à chaque partie !</li>
+              </ul>
+            </li>
+          </ol>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
     </div>
-    
+  </div>
 
-    <script src="public/assets/js/game.js"></script>
-    <script src="public/assets/js/functions.js"></script>
+
+  <script src="./public/assets/js/functions.js"></script>
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
