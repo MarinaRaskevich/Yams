@@ -207,10 +207,9 @@ const initialiseGame = () => {
     containerSelectDice.forEach((div) => {
       div.innerHTML = "";
     });
-    if(stepsNumber === 12){
-
+    if (stepsNumber === 12) {
       // triggerNewGame();
-      
+
       endGame();
     } else {
       throwButton.classList.remove("disabled");
@@ -223,8 +222,8 @@ const initialiseGame = () => {
       });
     }
     containerThrow.innerHTML = "";
-  };
-}
+  }
+};
 
 //Supprimer des écouteurs d'événements aux cellules du tableau des résultats
 const removeListenerFromCelles = () => {
@@ -414,4 +413,4 @@ const addScoreToLocalStorage = (score) => {
     partResults.push(partResult);
     localStorage.setItem("userData", JSON.stringify(partResults));
   }
-}
+};
