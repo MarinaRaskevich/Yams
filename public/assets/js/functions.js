@@ -176,7 +176,6 @@ const addBonus = (points) => {
     points.total3 +
     points.total4 +
     points.total5 +
-    points.total5 +
     points.total6;
 
   if (totalOperationsSum > 63) {
@@ -212,6 +211,7 @@ const saveResult = (e) => {
 
 const initialiseGame = () => {
   stepsNumber--;
+  console.log(stepsNumber);
   throwButton.classList.remove("disabled");
   numberThrow = 0;
   listDices = [];
@@ -333,9 +333,6 @@ const backToContainerThrow = (e) => {
     if (index !== -1) {
       keptDices.splice(index, 1);
     }
-    console.log(listDices);
-    console.log(keptDices);
-    console.log(numberThrow);
     initialiseContainerSelected();
   } else if (numberThrow == 2) {
     let value = parseInt(e.target.dataset.value);
@@ -351,9 +348,6 @@ const backToContainerThrow = (e) => {
     img.setAttribute("src", `public/assets/img/${value}.png`);
     img.addEventListener("click", keepDices);
     containerThrow.appendChild(img);
-    console.log(true);
-    console.log(listDices);
-    console.log(keptDices);
   } else if (numberThrow == 3) {
   }
 };

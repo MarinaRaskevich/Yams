@@ -20,6 +20,11 @@ header img {
   max-width: 100px;
 }
 
+h1,
+h2 {
+  font-family: Jockey;
+}
+
 div {
   p {
     font-size: 8em;
@@ -132,12 +137,10 @@ table {
   }
 
   .btn-new {
-    height: 3rem;
     width: 25%;
   }
 
   .btn-throw {
-    height: 3rem;
     width: 25%;
   }
 }
