@@ -18,6 +18,11 @@ header img {
   max-width: 100px;
 }
 
+h1,
+h2 {
+  font-family: Jockey;
+}
+
 div p {
   font-size: 8em;
   cursor: pointer;
@@ -84,12 +89,12 @@ div p {
 
 .btn-new {
   background-color: #167b43;
-  width: 40%;
+  width: 35%;
 }
 
 .btn-throw {
   background-color: #a70d0d;
-  width: 40%;
+  width: 35%;
 }
 
 table {
@@ -105,6 +110,17 @@ table td {
 }
 table thead tr {
   text-align: center;
+  th,
+  tr,
+  td {
+    padding: 0.2em;
+    border: 1px solid black;
+  }
+  thead {
+    tr {
+      text-align: center;
+    }
+  }
 }
 
 @media (min-width: 767px) {
@@ -121,11 +137,12 @@ table thead tr {
     height: 5em;
   }
   .btn-new {
-    width: 20%;
+    width: 25%;
   }
   .btn-throw {
-    width: 20%;
+    width: 25%;
   }
 }
 
 /*# sourceMappingURL=style.css.map */
+

@@ -176,7 +176,6 @@ const addBonus = (points) => {
     points.total3 +
     points.total4 +
     points.total5 +
-    points.total5 +
     points.total6;
 
   if (totalOperationsSum > 63) {
@@ -212,6 +211,15 @@ const saveResult = (e) => {
 
 const initialiseGame = () => {
   stepsNumber--;
+  console.log(stepsNumber);
+  throwButton.classList.remove("disabled");
+  numberThrow = 0;
+  listDices = [];
+  keptDices = [];
+  counterDivSelected = 0;
+  containerSelectDice.forEach((div) => {
+    div.innerHTML = "";
+  });
   if(stepsNumber === 12){
     endGame();
   }else{
@@ -272,10 +280,18 @@ let firstThrow = () => {
 };
 
 let secondThrow = () => {
-  for (let i = 0; i <= numberOfDice.length-1; ++i) {
+  for (let i = 0; i <= numberOfDice.length - 1; ++i) {
     listDices.push(Math.floor(Math.random() * 6) + 1);
   }
   initialiseContainerSelected();
+  diceChoice();
+  updatePointsInGame([...listDices, ...keptDices]);
+};
+
+let thirdThrow = () => {
+  for (let i = 0; i <= numberOfDice.length - 1; ++i) {
+    listDices.push(Math.floor(Math.random() * 6) + 1);
+  }
   diceChoice();
   updatePointsInGame([...listDices, ...keptDices]);
 };
@@ -294,19 +310,6 @@ const initialiseContainerSelected = () => {
       counterDivSelected++;
     }
   });
-};
-
-let thirdThrow = () => {
-  let numberOfnone =
-    5 - document.querySelectorAll(".container-selected img").length;
-  for (let i = 0; i < numberOfnone; ++i) {
-    listDices.push(Math.floor(Math.random() * 6) + 1);
-  }
-  containerThrow.querySelectorAll("img").forEach((element) => {
-    keptDices.push(element.dataset.diceValue);
-  });
-  diceChoice();
-  updatePointsInGame([...listDices, ...keptDices]);
 };
 
 const keepDices = (e) => {
@@ -342,9 +345,6 @@ const backToContainerThrow = (e) => {
     if (index !== -1) {
       keptDices.splice(index, 1);
     }
-    console.log(listDices);
-    console.log(keptDices);
-    console.log(numberThrow);
     initialiseContainerSelected();
   } else if (numberThrow == 2) {
     let value = parseInt(e.target.dataset.value);
@@ -360,9 +360,6 @@ const backToContainerThrow = (e) => {
     img.setAttribute("src", `public/assets/img/${value}.png`);
     img.addEventListener("click", keepDices);
     containerThrow.appendChild(img);
-    console.log(true);
-    console.log(listDices);
-    console.log(keptDices);
   } else if (numberThrow == 3) {
   }
 };
@@ -404,34 +401,39 @@ const triggerNewGame = () => {
   containerThrow.innerHTML = "";
   containerSelected.querySelectorAll(".dice-container").forEach((diceImage) => {
     diceImage.innerHTML = "";
-  })
+  });
   resultCells.forEach((resultCell) => {
     resultCell.innerText = "";
   });
-}
-
+};
 
 //LOCALSTORAGE
 
+let score1 = 300;
+let score2 = 100;
+let score3 = 2500;
 let partieNumber = 0;
 
 const addScoreToLocalStorage = (score) => {
-  partieNumber++
+  partieNumber++;
   const partResult = {
-    partie : partieNumber,
-    score : score,
-  }
-  if(localStorage.getItem("userData") !== null){
+    partie: partieNumber,
+    score: score,
+  };
+  if (localStorage.getItem("userData") !== null) {
     const partResults = JSON.parse(localStorage.getItem("userData"));
     partResults.push(partResult);
-    localStorage.setItem("userData", JSON.stringify(partResults))
-  }else{
+    localStorage.setItem("userData", JSON.stringify(partResults));
+  } else {
     const partResults = [];
     partResults.push(partResult);
-    localStorage.setItem("userData", JSON.stringify(partResults))
+    localStorage.setItem("userData", JSON.stringify(partResults));
   }
-}
+};
 
+addScoreToLocalStorage(score1);
+addScoreToLocalStorage(score3);
+addScoreToLocalStorage(score2);
 const endGame = () => {
   addBonus(points);
   let total = totalScore(points);

@@ -11,6 +11,8 @@
     <title>Yams</title>
   </head>
   <body>
+    <div class="container vh-100">
+      <h1 class="text-white mb-0">Yams</h1>
     <!-- <header class="text-center">
       <img src="public/assets/img/yamsTitle.png" alt="">
     </header> -->
@@ -19,8 +21,12 @@
         <div class="col-12 col-lg-8 d-flex flex-column justify-content-center">
           <div>
             <div class="border-image-wood">
-              <div class="gameDesk d-flex flex-wrap justify-content-center align-items-center">
-                <div class="container-throw d-flex flex-wrap justify-content-center"></div>
+              <div
+                class="gameDesk d-flex flex-wrap justify-content-center align-items-center"
+              >
+                <div
+                  class="container-throw d-flex flex-wrap justify-content-center"
+                ></div>
                 <div class="container-selected d-flex">
                   <div class="dice-container m-1"></div>
                   <div class="dice-container m-1"></div>
@@ -30,11 +36,14 @@
                 </div>
               </div>
             </div>
-            <div class="actionButtons container-buttons d-flex justify-content-around">
+            <div
+              class="actionButtons container-buttons d-flex justify-content-around"
+            >
               <button class="btn btn-success btn-new rounded-3 fs-5 text-white">
                 NOUVELLE PARTIE
               </button>
-              <button id="throw"
+              <button
+                id="throw"
                 class="btn btn-danger btn-throw rounded-3 fs-5 text-white"
               >
                 LANCER
@@ -43,9 +52,9 @@
           </div>
         </div>
         <div class="col-11 mx-auto col-lg-4 bg-silver my-5 my-lg-0">
-          <h3 class="text-center m-4">FEUILLES DES SCORES</h3>
-          <table>
-            <thead> 
+          <h2 class="text-center mt-1 fs-5">FEUILLES DES SCORES</h2>
+          <table class="mb-2">
+            <thead>
               <tr>
                 <th>Opération</th>
                 <th>Calcul des points</th>
@@ -110,14 +119,14 @@
               </tr>
               <tr class="fw-bolder">
                 <td>TOTAL</td>
-                <td></td>
+                <td id="total"></td>
               </tr>
             </tbody>
           </table>
           <table>
-            <thead class="mt-5">
+            <thead>
               <tr>
-                <p class="fs-3 text-center">Total score</p>
+                <h2 class="fs-4 text-center">Total score</h2>
               </tr>
             </thead>
             <tbody class="text-center">
