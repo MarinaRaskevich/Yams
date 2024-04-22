@@ -32,16 +32,6 @@ header img {
   animation: animeThrowDice 0.5s;
 }
 
-.containerMessageGameDesk {
-  width: 100%;
-  text-align: center;
-}
-.containerMessageGameDesk p {
-  color: white;
-  font-weight: bold;
-  font-size: 2em;
-}
-
 .dice {
   width: 4em;
   height: 4em;
@@ -105,7 +95,7 @@ table {
 table th,
 table tr,
 table td {
-  padding: 0.4em;
+  padding: 0.2em;
   border: 1px solid black;
 }
 table thead tr {
