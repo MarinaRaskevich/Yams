@@ -11,8 +11,10 @@
     <title>Yams</title>
   </head>
   <body>
-    <div class="container mt-2 vh-90">
-      <h1 class="text-white">Yams</h1>
+    <div class="container vh-100">
+      <h1 class="text-white mb-0">Yams</h1>
+      <a href="index.html" class="text-white"> &#x2039&#x2039 Revenir sur la page d'accueil</a
+      >
       <div class="row h-100 align-content-center">
         <div class="col-12 col-lg-8 d-flex flex-column justify-content-center">
           <div>
@@ -48,8 +50,8 @@
           </div>
         </div>
         <div class="col-11 mx-auto col-lg-4 bg-silver my-5 my-lg-0">
-          <h3 class="text-center m-3 fs-4">FEUILLES DES SCORES</h3>
-          <table>
+          <h2 class="text-center mt-1 fs-5">FEUILLES DES SCORES</h2>
+          <table class="mb-2">
             <thead>
               <tr>
                 <th>Opération</th>
@@ -59,80 +61,100 @@
             <tbody>
               <tr>
                 <td title="Cumul des 1">TOTAL 1</td>
+                <td class="fw-bold">TOTAL 1</td>
                 <td class="result total1" id="total1"></td>
               </tr>
               <tr>
                 <td title="Cumul des 2">TOTAL 2</td>
+                <td class="fw-bold">TOTAL 2</td>
                 <td class="result total2" id="total2"></td>
               </tr>
               <tr>
                 <td title="Cumul des 3">TOTAL 3</td>
+                <td class="fw-bold">TOTAL 3</td>
                 <td class="result total3" id="total3"></td>
               </tr>
               <tr>
                 <td title="Cumul des 4">TOTAL 4</td>
+                <td class="fw-bold">TOTAL 4</td>
                 <td class="result total4" id="total4"></td>
               </tr>
               <tr>
                 <td title="Cumul des 5">TOTAL 5</td>
+                <td class="fw-bold">TOTAL 5</td>
                 <td class="result total5" id="total5"></td>
               </tr>
               <tr>
                 <td title="Cumul des 6">TOTAL 6</td>
+                <td class="fw-bold">TOTAL 6</td>
                 <td class="result total6" id="total6"></td>
               </tr>
               <tr>
                 <td title="Si le cumul de Total 1, 2, 3, 4, 5 et 6 > 63pts : 35pts">BONUS</td>
+                <td class="fw-bold">BONUS</td>
                 <td class="bonus" id="bonus"></td>
               </tr>
               <tr>
                 <td title="Cumul des 3 dés identiques">BRELAN</td>
+                <td class="fw-bold">BRELAN</td>
                 <td class="result brelan" id="brelan"></td>
               </tr>
               <tr>
                 <td title="Cumul des 4 dés identiques">CARRE</td>
+                <td class="fw-bold">CARRE</td>
                 <td class="result square" id="square"></td>
               </tr>
               <tr>
                 <td title="Si 2 dés identiques (paire) et 3 dés identiques (brelan) : 25pts">FULL</td>
+                <td class="fw-bold">FULL</td>
                 <td class="result full" id="full"></td>
               </tr>
               <tr>
                 <td title="Si les valeurs 1, 2, 3, 4 et 5 sont présentes : 30pts">PETITE SUITE</td>
+                <td class="fw-bold">PETITE SUITE</td>
                 <td class="result smallSuite" id="smallSuite"></td>
               </tr>
               <tr>
                 <td title="Si les valeurs 2, 3, 4, 5 et 6 sont présentes : 40pts">GRANDE SUITE</td>
+                <td class="fw-bold">GRANDE SUITE</td>
                 <td class="result bigSuite" id="bigSuite"></td>
               </tr>
               <tr>
                 <td title="Si 5 dés identiques : 50pts">YAMS</td>
+                <td class="fw-bold">YAMS</td>
                 <td class="result yams" id="yams"></td>
               </tr>
               <tr>
                 <td title="Cumul des 5 dés">CHANCE</td>
+                <td class="fw-bold">CHANCE</td>
                 <td class="result chance" id="chance"></td>
               </tr>
               <tr class="fw-bolder">
-                <td>TOTAL</td>
-                <td></td>
+                <td class="fw-bold">TOTAL</td>
+                <td id="total"></td>
               </tr>
             </tbody>
           </table>
           <table>
-            <thead class="mt-5">
+            <thead>
               <tr>
-                <p class="fs-3 text-center">Total score</p>
+                <h2 class="fs-4 text-center">Total score</h2>
               </tr>
             </thead>
             <tbody class="text-center">
               <tr>
                 <td>P1</td>
+                <td>P2</td>
                 <td>P3</td>
-                <td>P3</td>
-                <td>P3</td>
-                <td>P3</td>
-                <td>P3</td>
+                <td>P4</td>
+                <td>P5</td>
+              </tr>
+              <tr>
+                <td class="score">SCORE1</td>
+                <td class="score">SCORE2</td>
+                <td class="score">SCORE3</td>
+                <td class="score">SCORE4</td>
+                <td class="score">SCORE5</td>
               </tr>
             </tbody>
           </table>
