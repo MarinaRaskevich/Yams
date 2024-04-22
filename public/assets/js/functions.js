@@ -220,8 +220,11 @@ const initialiseGame = () => {
   containerSelectDice.forEach((div) => {
     div.innerHTML = "";
   });
-  if(stepsNumber === 12){
+  if(stepsNumber === 0){
+
+    triggerNewGame();
     endGame();
+
   }else{
     throwButton.classList.remove("disabled");
     numberThrow = 0;
@@ -398,6 +401,7 @@ const throwDices = () => {
 const triggerNewGame = () => {
   keptDices = [];
   listDices = [];
+  numberThrow = 0;
   containerThrow.innerHTML = "";
   containerSelected.querySelectorAll(".dice-container").forEach((diceImage) => {
     diceImage.innerHTML = "";
@@ -429,9 +433,16 @@ const addScoreToLocalStorage = (score) => {
 };
 
 const endGame = () => {
+  stepsNumber = 13;
   addBonus(points);
   let total = totalScore(points);
   console.log(total);
-  addScoreToLocalStorage(total)
+  addScoreToLocalStorage(total);
+  insertScoreInArray();
+}
+
+const insertScoreInArray = () => {
+  let local = localStorage.getItem("userData");
+  console.log(local)
 }
 

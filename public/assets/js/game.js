@@ -23,7 +23,7 @@ let throwButton = document.getElementById("throw");
 let newGame = document.getElementsByClassName("btn-new")[0];
 
 throwButton.addEventListener("click", throwDices);
-newGame.addEventListener("click" , triggerNewGame)
+newGame.addEventListener("click" , triggerNewGame);
 
 let arrayInGame;
 
