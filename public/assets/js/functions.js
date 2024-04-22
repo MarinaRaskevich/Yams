@@ -220,9 +220,10 @@ const initialiseGame = () => {
   containerSelectDice.forEach((div) => {
     div.innerHTML = "";
   });
-  if(stepsNumber === 0){
+  if(stepsNumber === 12){
 
-    triggerNewGame();
+    // triggerNewGame();
+    
     endGame();
 
   }else{
@@ -416,7 +417,6 @@ const triggerNewGame = () => {
 let partieNumber = 0;
 
 const addScoreToLocalStorage = (score) => {
-  partieNumber++;
   const partResult = {
     partie: partieNumber,
     score: score,
